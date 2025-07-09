@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GXkKmUBeEeA=",
+  "dgSpecHash": "QbzA0SDb1GE=",
   "success": true,
-  "projectFilePath": "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/UserManagement02.csproj",
+  "projectFilePath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj",
   "expectedPackageFiles": [
     "/Users/alialomary/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/alialomary/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

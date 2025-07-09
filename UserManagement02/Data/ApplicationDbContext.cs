@@ -13,5 +13,6 @@ namespace UserManagement02.Data
         { }
 
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Supervisor> Supervisors { get; set; }
     }
 }

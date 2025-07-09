@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/UserManagement02.csproj": {}
+    "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj": {}
   },
   "projects": {
-    "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/UserManagement02.csproj": {
+    "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/UserManagement02.csproj",
+        "projectUniqueName": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj",
         "projectName": "UserManagement02",
-        "projectPath": "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/UserManagement02.csproj",
+        "projectPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj",
         "packagesPath": "/Users/alialomary/.nuget/packages/",
-        "outputPath": "/Users/alialomary/RiderProjects/UserManagement02/UserManagement02/obj/",
+        "outputPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/alialomary/.nuget/NuGet/NuGet.Config"

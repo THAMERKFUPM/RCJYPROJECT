@@ -21,6 +21,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+// Transint repo
+builder.Services.AddTransient<ISupervisorRepo, SupervisorRepo>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
