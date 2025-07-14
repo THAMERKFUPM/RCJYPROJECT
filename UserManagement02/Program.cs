@@ -2,29 +2,38 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UserManagement02;
 using UserManagement02.Data;
+using UserManagement02.Interfaces;
+using UserManagement02.Mapping;
 using UserManagement02.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// EF + SQL Server
+// 1) EF Core + SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
-    opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
-//builder.Services.AddTransient<IUserRepo,UserRepo>();
+// 2) Identity
+builder.Services
+    .AddDefaultIdentity<IdentityUser>(opts => {
+        opts.SignIn.RequireConfirmedAccount = false;
+    })
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-// Identity default (no custom AppRole)
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+// 3) app services
+builder.Services.AddScoped<ISupervisorRepo,  SupervisorRepo>();
+builder.Services.AddScoped<ITraineeRepo,     TraineeRepo>();
+builder.Services.AddScoped<IDepartmentRepo,   DepartmentRepo>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-// MVC + Razor Pages
+// 4) MVC & Razor Pages
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-// Transint repo
-builder.Services.AddTransient<ISupervisorRepo, SupervisorRepo>();
 var app = builder.Build();
 
+// 5) pipeline
 if (app.Environment.IsDevelopment())
     app.UseMigrationsEndPoint();
 else
@@ -34,14 +43,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
-// default route + razor pages
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 app.MapRazorPages();
 
 app.Run();

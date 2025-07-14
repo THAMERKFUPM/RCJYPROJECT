@@ -18,7 +18,7 @@ namespace UserManagement02.Models
         public string? Password { get; set; }
 
         [Required]
-        public string? Role { get; set; } // HR, Supervisor, SectionHead, Intern, Admin
+        public string? Role { get; set; } // HR, Supervisors, SectionHead, Intern, Admin
 
         [Required]
         public string? PhoneNumber { get; set; }

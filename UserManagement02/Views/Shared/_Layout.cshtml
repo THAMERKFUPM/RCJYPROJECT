@@ -12,30 +12,85 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3">
         <div class="container-fluid">
             <a class="navbar-brand" asp-controller="Home" asp-action="Index">UserManagement02</a>
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
+
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
                     </li>
-                    <!-- Added Supervisors link -->
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Supervisor" asp-action="Index">Supervisors</a>
+                        <a class="nav-link" asp-controller="Supervisors" asp-action="Index">
+                            المشرفون
+                        </a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           id="hrDropdown"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            الموارد البشرية
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="hrDropdown">
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="HumanResources"
+                                   asp-action="Dashboard">
+                                    لوحة التحكم
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Trainees"
+                                   asp-action="Create">
+                                    إضافة متدرب
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Trainees"
+                                   asp-action="Index">
+                                    كلّ المتدربين
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
+
                 <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
 </header>
+
 <div class="container">
-    <main class="pb-3">@RenderBody()</main>
+    <main class="pb-3">
+        @RenderBody()
+    </main>
 </div>
+
 <footer class="border-top text-muted p-3">
     &copy; 1447 - UserManagement02
 </footer>
+
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>

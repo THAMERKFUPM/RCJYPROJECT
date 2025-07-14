@@ -1,75 +1,99 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UserManagement02.Data;
 using UserManagement02.Models;
-using UserManagement02.Repositories;
+using UserManagement02.ViewModels;
 
 namespace UserManagement02.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        //private readonly IUserRepo _userRepo;
+        private readonly ApplicationDbContext _ctx;
+        private readonly IMapper             _mapper;
 
-        public UsersController(ApplicationDbContext context/*IUserRepo userRepo*/)
+        public UsersController(ApplicationDbContext ctx, IMapper mapper)
         {
-            _context = context;
-            //_userRepo = userRepo;
+            _ctx    = ctx;
+            _mapper = mapper;
         }
-          
 
+        // GET: /Users
         public async Task<IActionResult> Index()
         {
-            //var list =await _userRepo.GetAllUsers();
-            //return View(list);
-            var list =await _context.AppUsers.ToListAsync();
-            return View(list);
+            var users = await _ctx.AppUsers.ToListAsync();
+            var vms   = _mapper.Map<List<UserViewModel>>(users);
+            return View(vms);
         }
-    
+
+        // GET: /Users/Create
         public IActionResult Create()
-            => View();
-
-        [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AppUser user)
         {
-            if (!ModelState.IsValid) return View(user);
-            _context.Add(user);
-            await _context.SaveChangesAsync();
+            // initialize any default values if needed
+            return View(new UserViewModel());
+        }
+
+        // POST: /Users/Create
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(UserViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            var entity = _mapper.Map<AppUser>(vm);
+            _ctx.AppUsers.Add(entity);
+            await _ctx.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        // GET: /Users/Edit/5
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null) return NotFound();
-            var u = await _context.AppUsers.FindAsync(id);
-            return u == null ? NotFound() : View(u);
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity == null)
+                return NotFound();
+
+            var vm = _mapper.Map<UserViewModel>(entity);
+            return View(vm);
         }
 
+        // POST: /Users/Edit/5
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, AppUser user)
+        public async Task<IActionResult> Edit(UserViewModel vm)
         {
-            if (id != user.UserID) return NotFound();
-            if (!ModelState.IsValid) return View(user);
-            _context.Update(user);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            var entity = _mapper.Map<AppUser>(vm);
+            _ctx.AppUsers.Update(entity);
+            await _ctx.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        // GET: /Users/Delete/5
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null) return NotFound();
-            var u = await _context.AppUsers.FindAsync(id);
-            return u == null ? NotFound() : View(u);
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity == null)
+                return NotFound();
+
+            var vm = _mapper.Map<UserViewModel>(entity);
+            return View(vm);
         }
 
+        // POST: /Users/Delete/5
         [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var u = await _context.AppUsers.FindAsync(id);
-            if (u != null)
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity != null)
             {
-                _context.AppUsers.Remove(u);
-                await _context.SaveChangesAsync();
+                _ctx.AppUsers.Remove(entity);
+                await _ctx.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }

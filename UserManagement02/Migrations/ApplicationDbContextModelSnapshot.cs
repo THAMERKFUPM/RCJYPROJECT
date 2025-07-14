@@ -22,6 +22,71 @@ namespace UserManagement02.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "تقنية المعلومات"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "استثمار الأملاك"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "البيئة"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "العقود"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "التطوير والاستثمار"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "الشؤون الفنية"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "خدمات المدينة"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "المشاريع"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "الأمن الصناعي والسلامة"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -167,10 +232,12 @@ namespace UserManagement02.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -207,10 +274,12 @@ namespace UserManagement02.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -218,6 +287,41 @@ namespace UserManagement02.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Supervisor", b =>
+                {
+                    b.Property<int>("SupervisorID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SupervisorID"));
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DepartmentId1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SupervisorID");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("DepartmentId1");
+
+                    b.ToTable("Supervisors");
                 });
 
             modelBuilder.Entity("UserManagement02.Models.AppUser", b =>
@@ -260,13 +364,19 @@ namespace UserManagement02.Migrations
                     b.ToTable("AppUsers");
                 });
 
-            modelBuilder.Entity("UserManagement02.Models.Supervisor", b =>
+            modelBuilder.Entity("UserManagement02.Models.Trainee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TraineeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TraineeId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -276,13 +386,19 @@ namespace UserManagement02.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int>("SupervisorId")
+                        .HasColumnType("int");
 
-                    b.ToTable("Supervisors");
+                    b.HasKey("TraineeId");
+
+                    b.ToTable("Trainees");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -334,6 +450,26 @@ namespace UserManagement02.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Supervisor", b =>
+                {
+                    b.HasOne("Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Department", null)
+                        .WithMany("Supervisors")
+                        .HasForeignKey("DepartmentId1");
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Department", b =>
+                {
+                    b.Navigation("Supervisors");
                 });
 #pragma warning restore 612, 618
         }

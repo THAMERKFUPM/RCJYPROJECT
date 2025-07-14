@@ -355,3 +355,5 @@
 /Users/alialomary/RiderProjects/Trainee-system/UserManagement02/obj/Debug/net8.0/UserManagement02.pdb
 /Users/alialomary/RiderProjects/Trainee-system/UserManagement02/obj/Debug/net8.0/UserManagement02.genruntimeconfig.cache
 /Users/alialomary/RiderProjects/Trainee-system/UserManagement02/obj/Debug/net8.0/ref/UserManagement02.dll
+/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/bin/Debug/net8.0/AutoMapper.dll
+/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/bin/Debug/net8.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
