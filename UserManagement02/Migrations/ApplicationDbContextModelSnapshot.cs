@@ -32,59 +32,11 @@ namespace UserManagement02.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "تقنية المعلومات"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "استثمار الأملاك"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "البيئة"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "العقود"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "التطوير والاستثمار"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "الشؤون الفنية"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "خدمات المدينة"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "المشاريع"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "الأمن الصناعي والسلامة"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -300,9 +252,6 @@ namespace UserManagement02.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DepartmentId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -318,8 +267,6 @@ namespace UserManagement02.Migrations
                     b.HasKey("SupervisorID");
 
                     b.HasIndex("DepartmentId");
-
-                    b.HasIndex("DepartmentId1");
 
                     b.ToTable("Supervisors");
                 });
@@ -347,15 +294,15 @@ namespace UserManagement02.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("University")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -395,6 +342,10 @@ namespace UserManagement02.Migrations
 
                     b.Property<int>("SupervisorId")
                         .HasColumnType("int");
+
+                    b.Property<string>("University")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TraineeId");
 
@@ -455,14 +406,10 @@ namespace UserManagement02.Migrations
             modelBuilder.Entity("Supervisor", b =>
                 {
                     b.HasOne("Department", "Department")
-                        .WithMany()
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Department", null)
                         .WithMany("Supervisors")
-                        .HasForeignKey("DepartmentId1");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
                 });

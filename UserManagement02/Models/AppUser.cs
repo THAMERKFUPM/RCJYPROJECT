@@ -13,11 +13,16 @@ namespace UserManagement02.Models
 
         [Required, EmailAddress]
         public string? Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [Required]
+        public string? University { get; set; }
 
         [Required]
-        public string? Password { get; set; }
 
-        [Required]
+
+       
         public string? Role { get; set; } // HR, Supervisors, SectionHead, Intern, Admin
 
         [Required]

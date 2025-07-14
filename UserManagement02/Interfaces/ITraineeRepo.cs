@@ -11,7 +11,6 @@ namespace UserManagement02.Interfaces;
         Task UpdateAsync(Trainee t);
         Task DeleteAsync(int id);
 
-        // for dashboard stats
         Task<int> GetTotalTraineesAsync();
         Task<int> GetActiveTraineesAsync();
         Task<int> GetInactiveTraineesAsync();

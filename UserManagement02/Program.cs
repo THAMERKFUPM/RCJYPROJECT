@@ -23,6 +23,7 @@ builder.Services
 
 // 3) app services
 builder.Services.AddScoped<ISupervisorRepo,  SupervisorRepo>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<ITraineeRepo,     TraineeRepo>();
 builder.Services.AddScoped<IDepartmentRepo,   DepartmentRepo>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));

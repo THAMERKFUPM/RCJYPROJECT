@@ -11,8 +11,8 @@ public class SupervisorsViewModel
     [Required, EmailAddress] public string Email { get; set; }
     public string PhoneNumber { get; set; }
 
-    [Required] public int DepartmentId { get; set; }
-    public int SelectedDepartmentId   { get; set; }
+    [Required] public string Department { get; set; }
+    public string SelectedDepartmentId   { get; set; }
     public string DepartmentName { get; set; }
     
 

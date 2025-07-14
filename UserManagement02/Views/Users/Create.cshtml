@@ -7,7 +7,7 @@
 <h1>@ViewData["Title"]</h1>
 
 <form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()        <!-- ← تأكد من وجود هذا السطر -->
+    @Html.AntiForgeryToken()        
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -29,17 +29,23 @@
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
+
     <div class="mb-3">
         <label asp-for="Role" class="form-label"></label>
         <select asp-for="Role" class="form-control">
             <option value="">-- اختر دور --</option>
             <option>HR</option>
-            <option>Supervisor</option>   <!-- ← غيّرت إلى “Supervisor” بدون S زائدة -->
+            <option>Supervisor</option>   
             <option>SectionHead</option>
             <option>Intern</option>
             <option>Admin</option>
         </select>
         <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="University" class="form-label"></label>
+        <input asp-for="University" class="form-control" />
+        <span asp-validation-for="University" class="text-danger"></span>
     </div>
 
     <div class="mb-3">

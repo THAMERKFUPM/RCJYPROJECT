@@ -13,14 +13,13 @@ namespace UserManagement02.Data
 
         public DbSet<AppUser>     AppUsers    { get; set; }
         public DbSet<Supervisor>  Supervisors { get; set; }
-        public DbSet<Trainee>     Trainees    { get; set; }
+        public DbSet<Trainee>     Trainee    { get; set; }
         public DbSet<Department>  Departments { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        /*protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            // ——— Departments seed ————————————————————————
             builder.Entity<Department>(b =>
             {
                 b.HasKey(d => d.Id);
@@ -41,20 +40,19 @@ namespace UserManagement02.Data
                 );
             });
 
-            // ——— Supervisors → Department FK ———————————————————
             builder.Entity<Supervisor>(b =>
             {
                 b.HasKey(s => s.SupervisorID);
 
-                // ensure CLR has this property:
+                
                 b.Property(s => s.DepartmentId)
                  .IsRequired();
 
                 b.HasOne(s => s.Department)
-                 .WithMany()    // or .WithMany(d => d.Supervisors)
+                 .WithMany()    
                  .HasForeignKey(s => s.DepartmentId)
                  .OnDelete(DeleteBehavior.Restrict);
             });
-        }
+        }*/
     }
 }

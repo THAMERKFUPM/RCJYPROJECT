@@ -7,13 +7,13 @@ using UserManagement02.ViewModels;
 
 namespace UserManagement02.Controllers
 {
-    public class TraineesController : Controller
+    public class TraineeController : Controller
     {
         private readonly ITraineeRepo     _repo;
         private readonly ISupervisorRepo  _srepo;
         private readonly IMapper          _mapper;
 
-        public TraineesController(
+        public TraineeController(
             ITraineeRepo repo,
             ISupervisorRepo srepo,
             IMapper mapper)
@@ -22,14 +22,14 @@ namespace UserManagement02.Controllers
             _srepo  = srepo;
             _mapper = mapper;
         }
+        
 
-        // GET: /Trainees/Assign/5
         public async Task<IActionResult> Assign(int id)
         {
             var ent = await _repo.GetByIdAsync(id);
             if (ent == null) return NotFound();
 
-            // 1) your three departments hard-coded:
+            
             var departments = new[]
             {
                 new { Id = 1, Name = "تقنية المعلومات" },
@@ -37,7 +37,7 @@ namespace UserManagement02.Controllers
                 new { Id = 3, Name = "الاستثمار"    }
             };
 
-            // 2) build the VM
+            
             var vm = new TraineeAssignViewModel
             {
                 TraineeId             = ent.TraineeId,
@@ -59,7 +59,6 @@ namespace UserManagement02.Controllers
         public async Task<IActionResult> Assign(TraineeAssignViewModel vm)
         {
             if (!ModelState.IsValid)
-                // on error, re-render the GET so dropdowns repopulate
                 return await Assign(vm.TraineeId);
 
             var ent = await _repo.GetByIdAsync(vm.TraineeId);
@@ -69,5 +68,24 @@ namespace UserManagement02.Controllers
 
             return RedirectToAction("Dashboard", "HumanResources");
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var vm = new TraineeViewModel();
+            return View(vm); // this will return Views/Trainees/Create.cshtml
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(TraineeViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            var entity = _mapper.Map<Trainee>(vm);
+            await _repo.CreateAsync(entity);
+
+            return RedirectToAction("Dashboard", "HumanResources");
+        }
+
     }
 }

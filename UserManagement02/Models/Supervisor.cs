@@ -1,13 +1,17 @@
 using UserManagement02.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Supervisor
 {
-    public int    SupervisorID { get; set; }
-    public string FullName     { get; set; } = null!;
-    public string Email        { get; set; } = null!;
-    public string PhoneNumber  { get; set; } = null!;
+    [Column("Id")]
+    public int Id { get; set; }
 
-    // FK → Department
-    public int        DepartmentId { get; set; }
-    public Department Department   { get; set; } = null!;
+    [Column("Departments")]
+    public string Departments { get; set; } 
+
+    [Column("FullName")]
+    public string FullName { get; set; }
+
+    public string Email { get; set; }
+    public string PhoneNumber { get; set; }
 }

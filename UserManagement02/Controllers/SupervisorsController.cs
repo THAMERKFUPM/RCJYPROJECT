@@ -26,7 +26,7 @@ namespace UserManagement02.Controllers
             _mapper = mapper;
         }
 
-        // GET: /Supervisors
+        
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -35,7 +35,7 @@ namespace UserManagement02.Controllers
             return View(vms);
         }
 
-        // GET: /Supervisors/Create
+        
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -44,7 +44,7 @@ namespace UserManagement02.Controllers
             return View(vm);
         }
 
-        // POST: /Supervisors/Create
+      
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SupervisorsViewModel vm)
         {
@@ -55,13 +55,12 @@ namespace UserManagement02.Controllers
             }
 
             var ent = _mapper.Map<Supervisor>(vm);
-            ent.DepartmentId = vm.SelectedDepartmentId;
+            ent.Departments = vm.SelectedDepartmentId;
             await _repo.CreateAsync(ent);
 
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /Supervisors/Edit/5
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -69,12 +68,11 @@ namespace UserManagement02.Controllers
             if (ent == null) return NotFound();
 
             var vm = _mapper.Map<SupervisorsViewModel>(ent);
-            vm.SelectedDepartmentId = ent.DepartmentId;
+            vm.SelectedDepartmentId = ent.Departments;
             await PopulateDepartments(vm);
             return View(vm);
         }
 
-        // POST: /Supervisors/Edit/5
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(SupervisorsViewModel vm)
         {
@@ -85,13 +83,12 @@ namespace UserManagement02.Controllers
             }
 
             var ent = _mapper.Map<Supervisor>(vm);
-            ent.DepartmentId = vm.SelectedDepartmentId;
+            ent.Departments = vm.SelectedDepartmentId;
             await _repo.UpdateAsync(ent);
 
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: /Supervisors/Delete/5
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -102,7 +99,7 @@ namespace UserManagement02.Controllers
             return View(vm);
         }
 
-        // POST: /Supervisors/Delete/5
+     
         [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -110,26 +107,20 @@ namespace UserManagement02.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        /// <summary>
-        /// Loads your real departments into the VM's Departments list,
-        /// including a placeholder and pre-selecting the current one.
-        /// </summary>
+        
         private async Task PopulateDepartments(SupervisorsViewModel vm)
         {
-            // 1) load all real departments
             var depts = await _deptRepo.GetAllAsync();
 
-            // 2) map to SelectListItem, flagging Selected as needed
             var items = depts
                 .Select(d => new SelectListItem
                 {
                     Value = d.Id.ToString(),
                     Text = d.Name,
-                    Selected = (d.Id == vm.SelectedDepartmentId)
+                    Selected = (d.Id.ToString() == vm.SelectedDepartmentId)
                 })
                 .ToList();
 
-            // 3) insert a placeholder at the top
             items.Insert(0, new SelectListItem
             {
                 Value = "",

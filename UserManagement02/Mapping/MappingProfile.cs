@@ -28,6 +28,12 @@ namespace UserManagement02.Mapping
                 // don't overwrite the DB‐generated UserID on insert
                 .ForMember(ent => ent.UserID,
                     opt => opt.Ignore());
+            CreateMap<TraineeViewModel, Trainee>();
+            CreateMap<Trainee, TraineeViewModel>();
+
+            // You can also add others like:
+            CreateMap<SupervisorsViewModel, Supervisor>();
+            CreateMap<Supervisor, SupervisorsViewModel>();
         }
     }
 }
