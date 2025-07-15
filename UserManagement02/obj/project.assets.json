@@ -4830,31 +4830,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thamr\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/alialomary/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thamr\\Source\\Repos\\Trainee-system\\UserManagement02\\UserManagement02.csproj",
+      "projectUniqueName": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj",
       "projectName": "UserManagement02",
-      "projectPath": "C:\\Users\\thamr\\Source\\Repos\\Trainee-system\\UserManagement02\\UserManagement02.csproj",
-      "packagesPath": "C:\\Users\\thamr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thamr\\Source\\Repos\\Trainee-system\\UserManagement02\\obj\\",
+      "projectPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/UserManagement02.csproj",
+      "packagesPath": "/Users/alialomary/.nuget/packages/",
+      "outputPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\thamr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/alialomary/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4875,8 +4868,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -4942,7 +4934,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
