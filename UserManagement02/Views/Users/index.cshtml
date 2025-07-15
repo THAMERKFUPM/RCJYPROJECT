@@ -1,0 +1,39 @@
+@model IEnumerable<UserManagement02.ViewModels.UserViewModel>
+
+@{
+    ViewData["Title"] = "المستخدمون";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">إنشاء مستخدم جديد</a>
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>الاسم</th>
+        <th>البريد</th>
+        <th>الهاتف</th>
+        <th>الحالة</th>
+        <th>الإجراءات</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var user in Model) {
+        <tr>
+            <td>@user.UserID</td>
+            <td>@user.FullName</td>
+            <td>@user.Email</td>
+            <td>@user.PhoneNumber</td>
+            <td>@(user.IsActive ? "نشط" : "غير نشط")</td>
+            <td>
+                <a asp-action="Edit"   asp-route-id="@user.UserID">تعديل</a> |
+                <a asp-action="Delete" asp-route-id="@user.UserID">حذف</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
