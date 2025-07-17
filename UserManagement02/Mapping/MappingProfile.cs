@@ -8,32 +8,59 @@ namespace UserManagement02.Mapping
     {
         public MappingProfile()
         {
-            // Supervisors ↔ SupervisorsViewModel
-            CreateMap<Supervisor, SupervisorsViewModel>()
-                // entity uses SupervisorID, VM uses Id
+            // ——— Supervisor ↔ SupervisorViewModel —————————————————————————
+            CreateMap<Supervisor, SupervisorViewModel>()
+                // map PK
                 .ForMember(vm => vm.Id,
-                    opt => opt.MapFrom(src => src.SupervisorID))
+                           opt => opt.MapFrom(src => src.SupervisorID))
+                // map FK → SelectedDepartmentId
+                .ForMember(vm => vm.SelectedDepartmentId,
+                           opt => opt.MapFrom(src => src.DepartmentId))
+                // ignore dropdown list property in mapping
+                .ForMember(vm => vm.Departments,
+                           opt => opt.Ignore())
                 .ReverseMap()
-                // and back again
-                .ForMember(src => src.SupervisorID,
-                    opt => opt.MapFrom(vm  => vm.Id));
-            
-            // AppUser ↔ UserViewModel
-            CreateMap<AppUser, UserViewModel>()
-                // everything else auto‐mapped because names match
-                // except we ignore the hashed Password coming from the store
-                .ForMember(vm => vm.Password,
-                    opt => opt.Ignore())
-                .ReverseMap()
-                // don't overwrite the DB‐generated UserID on insert
-                .ForMember(ent => ent.UserID,
-                    opt => opt.Ignore());
-            CreateMap<TraineeViewModel, Trainee>();
-            CreateMap<Trainee, TraineeViewModel>();
+                // map back PK
+                .ForMember(ent => ent.SupervisorID,
+                           opt => opt.MapFrom(vm => vm.Id))
+                // map SelectedDepartmentId → DepartmentId
+                .ForMember(ent => ent.DepartmentId,
+                           opt => opt.MapFrom(vm => vm.SelectedDepartmentId))
+                // do not map navigation property
+                .ForMember(ent => ent.Department,
+                           opt => opt.Ignore());
 
-            // You can also add others like:
-            CreateMap<SupervisorsViewModel, Supervisor>();
-            CreateMap<Supervisor, SupervisorsViewModel>();
+            // ——— AppUser ↔ UserViewModel ————————————————————————————————
+            CreateMap<AppUser, UserViewModel>()
+                // do not map hashed password back
+                .ForMember(vm => vm.Password,
+                           opt => opt.Ignore())
+                .ReverseMap()
+                // do not overwrite DB‐generated UserID
+                .ForMember(ent => ent.UserID,
+                           opt => opt.Ignore());
+
+            // ——— Trainee ↔ TraineeViewModel ———————————————————————————
+            CreateMap<Trainee, TraineeViewModel>()
+                .ForMember(vm => vm.TraineeId,
+                           opt => opt.MapFrom(src => src.TraineeId))
+                .ForMember(vm => vm.SelectedDepartmentId,
+                           opt => opt.MapFrom(src => src.DepartmentId))
+                .ForMember(vm => vm.SelectedSupervisorId,
+                           opt => opt.MapFrom(src => src.SupervisorId))
+                // ignore dropdown properties
+                .ForMember(vm => vm.Departments,
+                           opt => opt.Ignore())
+                .ForMember(vm => vm.Supervisor,
+                           opt => opt.Ignore());
+
+            CreateMap<TraineeViewModel, Trainee>()
+                .ForMember(ent => ent.TraineeId,
+                           opt => opt.MapFrom(vm => vm.TraineeId))
+                .ForMember(ent => ent.DepartmentId,
+                           opt => opt.MapFrom(vm => vm.SelectedDepartmentId))
+                .ForMember(ent => ent.SupervisorId,
+                           opt => opt.MapFrom(vm => vm.SelectedSupervisorId));
         }
     }
 }

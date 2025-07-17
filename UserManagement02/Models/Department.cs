@@ -1,7 +1,8 @@
-public class Department
+namespace UserManagement02.Models
 {
-    public int    Id   { get; set; }
-    public string Name { get; set; } = null!;
-
-          public ICollection<Supervisor> Supervisors { get; set; } = new List<Supervisor>();
+    public class Department
+    {
+        public int    Id   { get; set; }
+        public string Name { get; set; } = null!;
+    }
 }

@@ -1,12 +1,14 @@
-@model UserManagement02.ViewModels.SupervisorsViewModel
+@model UserManagement02.ViewModels.SupervisorViewModel
 
 @{
-    ViewData["Title"] = "إضافة مشرف جديد";
+    ViewData["Title"] = "تعديل مشرف";
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="Create" method="post">
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="mb-3">
@@ -37,7 +39,7 @@
         <span asp-validation-for="SelectedDepartmentId" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">حفظ</button>
+    <button type="submit" class="btn btn-primary">حفظ</button>
     <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
 </form>
 

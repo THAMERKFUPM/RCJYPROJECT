@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - UserManagement02</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
@@ -23,21 +24,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
-
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Supervisors" asp-action="Index">
-                            المشرفون
-                        </a>
+                        <a class="nav-link" asp-controller="Supervisor" asp-action="Index">المشرفون</a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
                            href="#"
@@ -66,13 +61,12 @@
                             <li>
                                 <a class="dropdown-item"
                                    asp-controller="Trainees"
-                                   asp-action="Index">
+                                   asp-action="Assign">
                                     كلّ المتدربين
                                 </a>
                             </li>
                         </ul>
                     </li>
-
                 </ul>
 
                 <partial name="_LoginPartial" />
@@ -91,7 +85,8 @@
     &copy; 1447 - UserManagement02
 </footer>
 
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

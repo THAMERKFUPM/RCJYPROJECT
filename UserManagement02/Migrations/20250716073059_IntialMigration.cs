@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UserManagement02.Migrations
 {
     /// <inheritdoc />
-    public partial class FristMigration : Migration
+    public partial class IntialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,6 +19,7 @@ namespace UserManagement02.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     University = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -83,7 +84,7 @@ namespace UserManagement02.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trainees",
+                name: "Trainee",
                 columns: table => new
                 {
                     TraineeId = table.Column<int>(type: "int", nullable: false)
@@ -99,7 +100,7 @@ namespace UserManagement02.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trainees", x => x.TraineeId);
+                    table.PrimaryKey("PK_Trainee", x => x.TraineeId);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,7 +210,7 @@ namespace UserManagement02.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Supervisors",
+                name: "Supervisor",
                 columns: table => new
                 {
                     SupervisorID = table.Column<int>(type: "int", nullable: false)
@@ -221,9 +222,9 @@ namespace UserManagement02.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Supervisors", x => x.SupervisorID);
+                    table.PrimaryKey("PK_Supervisor", x => x.SupervisorID);
                     table.ForeignKey(
-                        name: "FK_Supervisors_Departments_DepartmentId",
+                        name: "FK_Supervisor_Departments_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "Id",
@@ -270,8 +271,8 @@ namespace UserManagement02.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Supervisors_DepartmentId",
-                table: "Supervisors",
+                name: "IX_Supervisor_DepartmentId",
+                table: "Supervisor",
                 column: "DepartmentId");
         }
 
@@ -297,10 +298,10 @@ namespace UserManagement02.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Supervisors");
+                name: "Supervisor");
 
             migrationBuilder.DropTable(
-                name: "Trainees");
+                name: "Trainee");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

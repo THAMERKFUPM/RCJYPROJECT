@@ -6,6 +6,9 @@ namespace UserManagement02.Interfaces
 {
     public interface IDepartmentRepo
     {
+     
+        
         Task<IEnumerable<Department>> GetAllAsync();
+
     }
 }

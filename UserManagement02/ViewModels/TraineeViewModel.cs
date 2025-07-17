@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace UserManagement02.ViewModels;
 
 public class TraineeViewModel
@@ -8,8 +9,15 @@ public class TraineeViewModel
     public string PhoneNumber{ get; set; }
     public string University { get; set; }
 
+    public int   SelectedDepartmentId  { get; set; }    
+    public int   SelectedSupervisorId  { get; set; }    
+    
     public int DepartmentId  { get; set; }
     public int SupervisorId  { get; set; }
     public bool IsActive     { get; set; }
     public DateTime CreatedAt{ get; set; }
+    
+    public SelectList Departments  { get; set; }
+    public SelectList Supervisor  { get; set; }
 }
+

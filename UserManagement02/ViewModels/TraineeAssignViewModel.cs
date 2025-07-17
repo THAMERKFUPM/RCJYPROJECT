@@ -10,5 +10,5 @@ public class TraineeAssignViewModel
     public int SelectedDepartmentId { get; set; }
     public IEnumerable<SelectListItem> Departments { get; set; }
     public int SelectedSupervisorId { get; set; }
-    public IEnumerable<SelectListItem> Supervisors { get; set; }
+    public SelectList Supervisor { get; set; }
 }

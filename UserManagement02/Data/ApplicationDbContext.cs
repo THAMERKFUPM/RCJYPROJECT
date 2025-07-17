@@ -12,7 +12,7 @@ namespace UserManagement02.Data
             : base(options) { }
 
         public DbSet<AppUser>     AppUsers    { get; set; }
-        public DbSet<Supervisor>  Supervisors { get; set; }
+        public DbSet<Supervisor>  Supervisor { get; set; }
         public DbSet<Trainee>     Trainee    { get; set; }
         public DbSet<Department>  Departments { get; set; }
 
