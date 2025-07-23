@@ -9,6 +9,8 @@ namespace UserManagement02.Interfaces
      
         
         Task<IEnumerable<Department>> GetAllAsync();
+        Task<Department?> GetByIdAsync(int id);
+        Task UpdateAsync(Department department);
 
     }
 }

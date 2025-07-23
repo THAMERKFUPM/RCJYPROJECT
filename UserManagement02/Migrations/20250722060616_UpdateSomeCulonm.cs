@@ -5,7 +5,7 @@
 namespace UserManagement02.Migrations
 {
     /// <inheritdoc />
-    public partial class NewDepartment : Migration
+    public partial class UpdateSomeCulonm : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

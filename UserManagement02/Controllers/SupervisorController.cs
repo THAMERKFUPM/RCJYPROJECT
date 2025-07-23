@@ -62,7 +62,7 @@ namespace UserManagement02.Controllers
             if (ent == null) return NotFound();
 
             var vm = _mapper.Map<SupervisorViewModel>(ent);
-            vm.SelectedDepartmentId = ent.DepartmentId;    
+            vm.SelectedDepartmentId = (int)ent.DepartmentId;    
             await PopulateDepartments(vm);
             return View(vm);
         }
@@ -92,7 +92,7 @@ namespace UserManagement02.Controllers
             vm.Departments = depts
                 .Select(d => new SelectListItem {
                     Value    = d.Id.ToString(),                      
-                    Text     = d.Name,
+                    Text     = d.DepartmentName,
                     Selected = d.Id == vm.SelectedDepartmentId       
                 })
                 .ToList();
@@ -100,7 +100,7 @@ namespace UserManagement02.Controllers
             
             vm.Departments.Insert(0, new SelectListItem {
                 Value = "",
-                Text  = "-- اختر إدارة --"
+                Text  = "اختر إدارة"
             });
         }
     }

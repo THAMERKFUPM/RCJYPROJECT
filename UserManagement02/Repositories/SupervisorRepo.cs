@@ -15,29 +15,29 @@ namespace UserManagement02.Repositories
         }
 
         public async Task<IEnumerable<Supervisor>> GetAllSupervisor() =>
-            await _context.Supervisor.ToListAsync();
+            await _context.Supervisors.ToListAsync();
 
         public async Task<Supervisor?> GetSupervisor(int id) =>
-            await _context.Supervisor.FindAsync(id);
+            await _context.Supervisors.FindAsync(id);
 
         public async Task CreateAsync(Supervisor supervisor)
         {
-            _context.Supervisor.Add(supervisor);
+            _context.Supervisors.Add(supervisor);
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Supervisor supervisor)
         {
-            _context.Supervisor.Update(supervisor);
+            _context.Supervisors.Update(supervisor);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var sup = await _context.Supervisor.FindAsync(id);
+            var sup = await _context.Supervisors.FindAsync(id);
             if (sup != null)
             {
-                _context.Supervisor.Remove(sup);
+                _context.Supervisors.Remove(sup);
                 await _context.SaveChangesAsync();
             }
         }

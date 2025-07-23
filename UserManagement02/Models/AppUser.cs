@@ -1,29 +1,30 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace UserManagement02.Models
 {
-    public class AppUser
-    {
-        [Key]
-        public int UserID { get; set; }
+    public class AppUser : IdentityUser<String>
 
+    {
+        public AppUser()
+        {
+           Id = Guid.NewGuid().ToString();
+        }
+
+
+        public int UserID { get; set; }
         [Required, MaxLength(100)]
         public string? FullName { get; set; }
 
         [Required, EmailAddress]
         public string? Email { get; set; }
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
-        [Required]
-        public string? University { get; set; }
 
+      
         [Required]
+        public string? UniversityName { get; set; }
 
-
-       
-        public string? Role { get; set; } // HR, Supervisors, SectionHead, Intern, Admin
+        
 
         [Required]
         public string? PhoneNumber { get; set; }

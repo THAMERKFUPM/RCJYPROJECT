@@ -5,47 +5,50 @@ using UserManagement02.Models;
 
 namespace UserManagement02.Repositories
 {
+
     public class TraineeRepo : ITraineeRepo
     {
+
         private readonly ApplicationDbContext _ctx;
+
         public TraineeRepo(ApplicationDbContext ctx) => _ctx = ctx;
 
         public async Task<IEnumerable<Trainee>> GetAllAsync() =>
-            await _ctx.Trainee.ToListAsync();
+            await _ctx.Trainees.ToListAsync();
 
         public async Task<Trainee> GetByIdAsync(int id) =>
-            await _ctx.Trainee.FindAsync(id);
+            await _ctx.Trainees.FindAsync(id);
 
         public async Task CreateAsync(Trainee t)
         {
-            _ctx.Trainee.Add(t);
+            _ctx.Trainees.Add(t);
             await _ctx.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(Trainee t)
         {
-            _ctx.Trainee.Update(t);
+            _ctx.Trainees.Update(t);
             await _ctx.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var t = await _ctx.Trainee.FindAsync(id);
+            var t = await _ctx.Trainees.FindAsync(id);
             if (t != null)
             {
-                _ctx.Trainee.Remove(t);
+                _ctx.Trainees.Remove(t);
                 await _ctx.SaveChangesAsync();
             }
         }
 
         public Task<int> GetTotalTraineesAsync() =>
-            _ctx.Trainee.CountAsync();
+            _ctx.Trainees.CountAsync();
 
         public Task<int> GetActiveTraineesAsync() =>
-            _ctx.Trainee.CountAsync(t => t.IsActive);
+            _ctx.Trainees.CountAsync(t => t.IsActive);
 
         public Task<int> GetInactiveTraineesAsync() =>
-            _ctx.Trainee.CountAsync(t => !t.IsActive);
+            _ctx.Trainees.CountAsync(t => !t.IsActive);
        
     }
     

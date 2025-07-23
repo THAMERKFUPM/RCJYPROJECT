@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>_Layout.cshtml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #dcdcdc;}
+.s2 { color: #9cdcfe;}
+.s3 { color: #569cd6;}
+.s4 { color: #c8c8c8;}
+.s5 { color: #a699e6;}
+.s6 { color: #dcdcdc;}
+.s7 { color: #b4b4b4;}
+.s8 { color: #d69d85;}
+.s9 { color: #6d9cbe;}
+.s10 { color: #569cd6;}
+</style>
+</head>
+<body bgcolor="#1e1e1e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+_Layout.cshtml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s3">html </span><span class="s2">lang</span><span class="s4">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s3">head</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">meta </span><span class="s2">charset</span><span class="s4">=&quot;utf-8&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">meta </span><span class="s2">name</span><span class="s4">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s4">=&quot;width=device-width, initial-scale=1.0&quot;</span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">title</span><span class="s0">&gt;</span><span class="s5">@</span><span class="s6">ViewData</span><span class="s7">[</span><span class="s8">&quot;Title&quot;</span><span class="s7">] </span><span class="s1">- UserManagement02</span><span class="s0">&lt;/</span><span class="s3">title</span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;</span><span class="s3">link </span><span class="s2">rel</span><span class="s4">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s4">=&quot;~/lib/bootstrap/dist/css/bootstrap.min.css&quot; </span><span class="s0">/&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">link </span><span class="s2">rel</span><span class="s4">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s4">=&quot;~/css/site.css&quot; </span><span class="s2">asp-append-version</span><span class="s4">=&quot;true&quot; </span><span class="s0">/&gt;</span>
+<span class="s0">&lt;/</span><span class="s3">head</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s3">body</span><span class="s0">&gt;</span>
+<span class="s0">&lt;</span><span class="s3">header</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">nav </span><span class="s2">class</span><span class="s4">=&quot;navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;</span><span class="s3">div </span><span class="s2">class</span><span class="s4">=&quot;container-fluid&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;navbar-brand&quot; </span><span class="s2">asp-controller</span><span class="s4">=&quot;Home&quot; </span><span class="s2">asp-action</span><span class="s4">=&quot;Index&quot;</span><span class="s0">&gt;</span><span class="s1">UserManagement02</span><span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s3">button </span><span class="s2">class</span><span class="s4">=&quot;navbar-toggler&quot; </span><span class="s2">type</span><span class="s4">=&quot;button&quot;</span>
+                    <span class="s2">data-bs-toggle</span><span class="s4">=&quot;collapse&quot;</span>
+                    <span class="s2">data-bs-target</span><span class="s4">=&quot;#navbarSupportedContent&quot;</span>
+                    <span class="s2">aria-controls</span><span class="s4">=&quot;navbarSupportedContent&quot;</span>
+                    <span class="s2">aria-expanded</span><span class="s4">=&quot;false&quot;</span>
+                    <span class="s2">aria-label</span><span class="s4">=&quot;Toggle navigation&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s3">span </span><span class="s2">class</span><span class="s4">=&quot;navbar-toggler-icon&quot;</span><span class="s0">&gt;&lt;/</span><span class="s3">span</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;/</span><span class="s3">button</span><span class="s0">&gt;</span>
+
+            <span class="s0">&lt;</span><span class="s3">div </span><span class="s2">class</span><span class="s4">=&quot;collapse navbar-collapse&quot; </span><span class="s2">id</span><span class="s4">=&quot;navbarSupportedContent&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s3">ul </span><span class="s2">class</span><span class="s4">=&quot;navbar-nav me-auto&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;</span><span class="s3">li </span><span class="s2">class</span><span class="s4">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;nav-link&quot; </span><span class="s2">asp-controller</span><span class="s4">=&quot;Home&quot; </span><span class="s2">asp-action</span><span class="s4">=&quot;Index&quot;</span><span class="s0">&gt;</span><span class="s1">Home</span><span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;</span><span class="s3">li </span><span class="s2">class</span><span class="s4">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;nav-link&quot; </span><span class="s2">asp-controller</span><span class="s4">=&quot;Users&quot; </span><span class="s2">asp-action</span><span class="s4">=&quot;Index&quot;</span><span class="s0">&gt;</span><span class="s1">Users</span><span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;</span><span class="s3">li </span><span class="s2">class</span><span class="s4">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;nav-link&quot; </span><span class="s2">asp-controller</span><span class="s4">=&quot;Supervisor&quot; </span><span class="s2">asp-action</span><span class="s4">=&quot;Index&quot;</span><span class="s0">&gt;</span><span class="s1">المشرفون</span><span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;</span><span class="s3">li </span><span class="s2">class</span><span class="s4">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;nav-link dropdown-toggle&quot;</span>
+                           <span class="s2">href</span><span class="s4">=&quot;#&quot;</span>
+                           <span class="s2">id</span><span class="s4">=&quot;hrDropdown&quot;</span>
+                           <span class="s2">role</span><span class="s4">=&quot;button&quot;</span>
+                           <span class="s2">data-bs-toggle</span><span class="s4">=&quot;dropdown&quot;</span>
+                           <span class="s2">aria-expanded</span><span class="s4">=&quot;false&quot;</span><span class="s0">&gt;</span>
+                            <span class="s1">الموارد البشرية</span>
+                        <span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;</span><span class="s3">ul </span><span class="s2">class</span><span class="s4">=&quot;dropdown-menu&quot; </span><span class="s2">aria-labelledby</span><span class="s4">=&quot;hrDropdown&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;</span><span class="s3">li</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;dropdown-item&quot;</span>
+                                   <span class="s2">asp-controller</span><span class="s4">=&quot;HumanResources&quot;</span>
+                                   <span class="s2">asp-action</span><span class="s4">=&quot;Dashboard&quot;</span><span class="s0">&gt;</span>
+                                    <span class="s1">لوحة التحكم</span>
+                                <span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;</span><span class="s3">li</span><span class="s0">&gt;&lt;</span><span class="s3">hr </span><span class="s2">class</span><span class="s4">=&quot;dropdown-divider&quot; </span><span class="s0">/&gt;&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;</span><span class="s3">li</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;dropdown-item&quot;</span>
+                                   <span class="s2">asp-controller</span><span class="s4">=&quot;Trainee&quot;</span>
+                                   <span class="s2">asp-action</span><span class="s4">=&quot;Create&quot;</span><span class="s0">&gt;</span>
+                                    <span class="s1">إضافة متدرب</span>
+                                <span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;</span><span class="s3">li</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;</span><span class="s3">a </span><span class="s2">class</span><span class="s4">=&quot;dropdown-item&quot;</span>
+                                   <span class="s2">asp-controller</span><span class="s4">=&quot;Trainee&quot;</span>
+                                   <span class="s2">asp-action</span><span class="s4">=&quot;Assign&quot;</span><span class="s0">&gt;</span>
+                                    <span class="s1">كلّ المتدربين</span>
+                                <span class="s0">&lt;/</span><span class="s3">a</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;/</span><span class="s3">ul</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;/</span><span class="s3">li</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;/</span><span class="s3">ul</span><span class="s0">&gt;</span>
+
+                <span class="s0">&lt;</span><span class="s3">partial </span><span class="s2">name</span><span class="s4">=&quot;_LoginPartial&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/</span><span class="s3">div</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/</span><span class="s3">div</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/</span><span class="s3">nav</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s3">header</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s3">div </span><span class="s2">class</span><span class="s4">=&quot;container&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s3">main </span><span class="s2">class</span><span class="s4">=&quot;pb-3&quot;</span><span class="s0">&gt;</span>
+        <span class="s5">@</span><span class="s6">RenderBody</span><span class="s7">()</span>
+    <span class="s0">&lt;/</span><span class="s3">main</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s3">div</span><span class="s0">&gt;</span>
+
+<span class="s0">&lt;</span><span class="s3">footer </span><span class="s2">class</span><span class="s4">=&quot;border-top text-muted p-3&quot;</span><span class="s0">&gt;</span>
+    <span class="s9">&amp;copy; </span><span class="s1">1447 - UserManagement02</span>
+<span class="s0">&lt;/</span><span class="s3">footer</span><span class="s0">&gt;</span>
+
+
+
+<span class="s5">@</span><span class="s6">await RenderSectionAsync</span><span class="s7">(</span><span class="s8">&quot;Scripts&quot;</span><span class="s7">, </span><span class="s6">required: </span><span class="s10">false</span><span class="s7">)</span>
+<span class="s0">&lt;/</span><span class="s3">body</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s3">html</span><span class="s0">&gt;</span>
+</pre>
+</body>
+</html>

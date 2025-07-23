@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Error.cshtml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a699e6;}
+.s1 { color: #dcdcdc;}
+.s2 { color: #b4b4b4;}
+.s3 { color: #d69d85;}
+.s4 { color: #dcdcdc;}
+.s5 { color: #808080;}
+.s6 { color: #569cd6;}
+.s7 { color: #9cdcfe;}
+.s8 { color: #c8c8c8;}
+</style>
+</head>
+<body bgcolor="#1e1e1e">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Error.cshtml</font>
+</center></td></tr></table>
+<pre><span class="s0">@model </span><span class="s1">ErrorViewModel</span>
+<span class="s0">@{</span>
+    <span class="s1">ViewData</span><span class="s2">[</span><span class="s3">&quot;Title&quot;</span><span class="s2">] </span><span class="s1">= </span><span class="s3">&quot;Error&quot;</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s5">&lt;</span><span class="s6">h1 </span><span class="s7">class</span><span class="s8">=&quot;text-danger&quot;</span><span class="s5">&gt;</span><span class="s4">Error.</span><span class="s5">&lt;/</span><span class="s6">h1</span><span class="s5">&gt;</span>
+<span class="s5">&lt;</span><span class="s6">h2 </span><span class="s7">class</span><span class="s8">=&quot;text-danger&quot;</span><span class="s5">&gt;</span><span class="s4">An error occurred while processing your request.</span><span class="s5">&lt;/</span><span class="s6">h2</span><span class="s5">&gt;</span>
+
+<span class="s0">@if </span><span class="s2">(</span><span class="s1">Model</span><span class="s2">.</span><span class="s1">ShowRequestId</span><span class="s2">)</span>
+<span class="s0">{</span>
+    <span class="s5">&lt;</span><span class="s6">p</span><span class="s5">&gt;</span>
+        <span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">Request ID:</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt; &lt;</span><span class="s6">code</span><span class="s5">&gt;</span><span class="s0">@</span><span class="s1">Model</span><span class="s2">.</span><span class="s1">RequestId</span><span class="s5">&lt;/</span><span class="s6">code</span><span class="s5">&gt;</span>
+    <span class="s5">&lt;/</span><span class="s6">p</span><span class="s5">&gt;</span>
+<span class="s0">}</span>
+
+<span class="s5">&lt;</span><span class="s6">h3</span><span class="s5">&gt;</span><span class="s4">Development Mode</span><span class="s5">&lt;/</span><span class="s6">h3</span><span class="s5">&gt;</span>
+<span class="s5">&lt;</span><span class="s6">p</span><span class="s5">&gt;</span>
+    <span class="s4">Swapping to </span><span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">Development</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt; </span><span class="s4">environment will display more detailed information about the error that occurred.</span>
+<span class="s5">&lt;/</span><span class="s6">p</span><span class="s5">&gt;</span>
+<span class="s5">&lt;</span><span class="s6">p</span><span class="s5">&gt;</span>
+    <span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">The Development environment shouldn't be enabled for deployed applications.</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt;</span>
+    <span class="s4">It can result in displaying sensitive information from exceptions to end users.</span>
+    <span class="s4">For local debugging, enable the </span><span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">Development</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt; </span><span class="s4">environment by setting the </span><span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">ASPNETCORE_ENVIRONMENT</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt; </span><span class="s4">environment variable to </span><span class="s5">&lt;</span><span class="s6">strong</span><span class="s5">&gt;</span><span class="s4">Development</span><span class="s5">&lt;/</span><span class="s6">strong</span><span class="s5">&gt;</span>
+    <span class="s4">and restarting the app.</span>
+<span class="s5">&lt;/</span><span class="s6">p</span><span class="s5">&gt;</span></pre>
+</body>
+</html>

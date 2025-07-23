@@ -7,9 +7,9 @@
 <h1>@ViewData["Title"]</h1>
 
 <form asp-action="Create" method="post">
-    @Html.AntiForgeryToken()        
+    @Html.AntiForgeryToken()
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="mb-3">
         <label asp-for="FullName" class="form-label"></label>
@@ -30,18 +30,21 @@
     </div>
 
 
+    @using Microsoft.AspNetCore.Mvc.Rendering
+
     <div class="mb-3">
         <label asp-for="Role" class="form-label"></label>
-        <select asp-for="Role" class="form-control">
+        
+
+        <select asp-for="Role"
+                asp-items="@(ViewData["Roles"] as IEnumerable<SelectListItem>)"
+                class="form-control">
             <option value="">-- اختر دور --</option>
-            <option>HR</option>
-            <option>Supervisor</option>   
-            <option>SectionHead</option>
-            <option>Intern</option>
-            <option>Admin</option>
         </select>
         <span asp-validation-for="Role" class="text-danger"></span>
     </div>
+
+
     <div class="mb-3">
         <label asp-for="University" class="form-label"></label>
         <input asp-for="University" class="form-control" />

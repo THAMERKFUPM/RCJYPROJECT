@@ -26,13 +26,6 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Supervisor" asp-action="Index">المشرفون</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
                            href="#"
@@ -53,16 +46,44 @@
                             <li><hr class="dropdown-divider" /></li>
                             <li>
                                 <a class="dropdown-item"
-                                   asp-controller="Trainees"
+                                   asp-controller="Trainee"
                                    asp-action="Create">
                                     إضافة متدرب
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item"
-                                   asp-controller="Trainees"
-                                   asp-action="Assign">
-                                    كلّ المتدربين
+                                   asp-controller="HumanResources"
+                                   asp-action="Transfer">
+                                    تعيين متدرب لادارة
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Trainee"
+                                   asp-action="Index">
+                                    كل المتدربين
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="HumanResources"
+                                   asp-action="AssignSupervisorToDepartment">
+                                    تعيين مشرف لادارة
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Supervisor"
+                                   asp-action="Index">
+                                    المشرفون
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="Users"
+                                   asp-action="Index">
+                                    كل المستخدمين
                                 </a>
                             </li>
                         </ul>
@@ -85,8 +106,7 @@
     &copy; 1447 - UserManagement02
 </footer>
 
-
-
 @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

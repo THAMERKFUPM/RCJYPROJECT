@@ -21,6 +21,15 @@ namespace UserManagement02.Repositories
             
             return await _ctx.Departments.ToListAsync();
         }
+        public async Task<Department?> GetByIdAsync(int id)
+        {
+            return await _ctx.Departments.FindAsync(id);
+        }
+        public async Task UpdateAsync(Department department)
+        {
+            _ctx.Departments.Update(department);
+            await _ctx.SaveChangesAsync();
+        }
 
     }
 }

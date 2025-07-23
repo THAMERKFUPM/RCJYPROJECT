@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,42 +12,47 @@ namespace UserManagement02.Controllers
 {
     public class TraineeController : Controller
     {
-        private readonly ITraineeRepo    _repo;
+        private readonly ITraineeRepo _repo;
         private readonly ISupervisorRepo _srepo;
         private readonly IDepartmentRepo _drepo;
-        private readonly IMapper         _mapper;
+        private readonly IMapper _mapper;
 
         public TraineeController(
-            ITraineeRepo      repo,
-            ISupervisorRepo   srepo,
-            IDepartmentRepo   drepo,
-            IMapper           mapper)
+            ITraineeRepo repo,
+            ISupervisorRepo srepo,
+            IDepartmentRepo drepo,
+            IMapper mapper)
         {
-            _repo   = repo;
-            _srepo  = srepo;
-            _drepo  = drepo;
+            _repo = repo;
+            _srepo = srepo;
+            _drepo = drepo;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var vm = new TraineeViewModel();
-            await PopulateLists(vm);
-            return View(vm);
+            return View(new CreateTraineeViewModel());
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TraineeViewModel vm)
+        public async Task<IActionResult> Create(CreateTraineeViewModel vm)
         {
             if (!ModelState.IsValid)
-            {
-                await PopulateLists(vm);
                 return View(vm);
-            }
 
-            var entity = _mapper.Map<Trainee>(vm);
-            await _repo.CreateAsync(entity);
+            var trainee = new Trainee
+            {
+                FullName = vm.FullName,
+                Email = vm.Email,
+                UniversityName = vm.UniversityName,
+                Major = vm.Major,
+                PhoneNumber = vm.PhoneNumber,
+                IsActive = vm.IsActive,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            await _repo.CreateAsync(trainee);
             return RedirectToAction("Dashboard", "HumanResources");
         }
 
@@ -56,10 +64,10 @@ namespace UserManagement02.Controllers
 
             var vm = new TraineeAssignViewModel
             {
-                TraineeId            = ent.TraineeId,
-                FullName             = ent.FullName,
-                SelectedDepartmentId = ent.DepartmentId,
-                SelectedSupervisorId = ent.SupervisorId
+                TraineeId = ent.TraineeId,
+                FullName = ent.FullName,
+                SelectedDepartmentId = ent.DepartmentId.GetValueOrDefault(),
+                SelectedSupervisorId = ent.SupervisorId.GetValueOrDefault()
             };
 
             await PopulateLists(vm);
@@ -70,7 +78,10 @@ namespace UserManagement02.Controllers
         public async Task<IActionResult> Assign(TraineeAssignViewModel vm)
         {
             if (!ModelState.IsValid)
-                return await Assign(vm.TraineeId);
+            {
+                await PopulateLists(vm);
+                return View(vm);
+            }
 
             var ent = await _repo.GetByIdAsync(vm.TraineeId);
             ent.DepartmentId = vm.SelectedDepartmentId;
@@ -80,40 +91,31 @@ namespace UserManagement02.Controllers
             return RedirectToAction("Dashboard", "HumanResources");
         }
 
-        // ——— Populates dropdowns for Create/Edit ———
-        private async Task PopulateLists(TraineeViewModel vm)
-        {
-            var depts = await _drepo.GetAllAsync();
-            vm.Departments = new SelectList(
-                depts,
-                "DepartmentId",
-                "DepartmentName",
-                vm.SelectedDepartmentId);
-
-            var sups = await _srepo.GetAllSupervisor();
-            vm.Supervisor = new SelectList(
-                sups,
-                "SupervisorId",
-                "FullName",
-                vm.SelectedSupervisorId);
-        }
-
-        // ——— Populates dropdowns for Assign ———
         private async Task PopulateLists(TraineeAssignViewModel vm)
         {
             var depts = await _drepo.GetAllAsync();
-            vm.Departments = new SelectList(
-                depts,
-                "DepartmentId",
-                "DepartmentName",
-                vm.SelectedDepartmentId);
+            vm.Departments = new SelectList(depts, "Id", "DepartmentName", vm.SelectedDepartmentId);
 
             var sups = await _srepo.GetAllSupervisor();
-            vm.Supervisor = new SelectList(
-                sups,
-                "SupervisorId",
-                "FullName",
-                vm.SelectedSupervisorId);
+            vm.Supervisor = new SelectList(sups, "SupervisorId", "SupervisorFullName", vm.SelectedSupervisorId);
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var trainees = await _repo.GetAllAsync();
+            var vmList = trainees.Select(t => new TraineeViewModel
+            {
+                TraineeId = t.TraineeId,
+                FullName = t.FullName,
+                Email = t.Email,
+                UniversityName = t.UniversityName,
+                Major = t.Major,
+                PhoneNumber = t.PhoneNumber,
+                IsActive = t.IsActive,
+                CreatedAt = t.CreatedAt
+            }).ToList();
+
+            return View(vmList);
         }
     }
 }

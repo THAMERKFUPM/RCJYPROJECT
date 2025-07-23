@@ -1,0 +1,35 @@
+@model UserManagement02.ViewModels.TraineeDirectoryVM
+
+<h2>@Model.ScopeTitle</h2>
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="table-light">
+    <tr>
+        <th>الاسم</th>
+        <th>التخصص</th>
+        <th>الجامعة</th>
+        @if (Model.ShowDepartment) { <th>الإدارة</th> }
+        @if (Model.ShowSupervisor) { <th>المشرف</th> }
+        @if (Model.ShowEvaluation) { <th>التقييم</th> }
+        @if (Model.ShowAttendance) { <th>الحضور %</th> }
+        <th style="width:120px;">إجراءات</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Rows)
+    {
+        <tr>
+            <td>@r.FullName</td>
+            <td>@r.Major</td>
+            <td>@r.University</td>
+            @if (Model.ShowDepartment) { <td>@r.Department</td> }
+            @if (Model.ShowSupervisor) { <td>@r.Supervisor</td> }
+            @if (Model.ShowEvaluation) { <td>@(r.AverageScore?.ToString("0.00") ?? "-")</td> }
+            @if (Model.ShowAttendance) { <td>@(r.AttendancePercentage.HasValue ? r.AttendancePercentage + "%" : "-")</td> }
+            <td>
+                <a asp-action="Details" asp-route-id="@r.TraineeId" class="btn btn-sm btn-primary">تفاصيل</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -61,9 +61,9 @@
                 <td>@(t.IsActive ? "نشط" : "غير نشط")</td>
                 <td>@t.CreatedAt.ToString("yyyy-MM-dd")</td>
                 <td>
-                    <a asp-controller="Trainees" asp-action="Edit" asp-route-id="@t.TraineeId">تعديل</a> |
-                    <a asp-controller="Trainees" asp-action="Delete" asp-route-id="@t.TraineeId">حذف</a> |
-                    <a asp-controller="Trainees" asp-action="Assign" asp-route-id="@t.TraineeId">تفويض</a>
+                    <a asp-controller="Trainee" asp-action="Edit" asp-route-id="@t.TraineeId">تعديل</a> |
+                    <a asp-controller="Trainee" asp-action="Delete" asp-route-id="@t.TraineeId">حذف</a> |
+                    <a asp-controller="Trainee" asp-action="Assign" asp-route-id="@t.TraineeId">تفويض</a>
                 </td>
             </tr>
         }
