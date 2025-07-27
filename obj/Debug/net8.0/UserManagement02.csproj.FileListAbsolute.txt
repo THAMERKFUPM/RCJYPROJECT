@@ -1254,7 +1254,6 @@ C:/Users/osama/Downloads/Copy4PM/Trainee-systemB/UserManagement02/obj/Debug/net8
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.MvcApplicationPartsAssemblyInfo.cache
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.RazorAssemblyInfo.cache
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.RazorAssemblyInfo.cs
-/Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.sourcelink.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets.build.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets.development.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets/msbuild.UserManagement02.Microsoft.AspNetCore.StaticWebAssets.props

@@ -3,15 +3,16 @@ namespace UserManagement02.ViewModels;
 
 public class TraineeViewModel
 {
-    public int TraineeId     { get; set; }
+    public int TraineeId     { get; set; } 
+
     public string FullName   { get; set; }
     public string Email      { get; set; }
     public string PhoneNumber{ get; set; }
-    public string UniversityName { get; set; }
-    public string Major {get; set; }
+    public string? UniversityName { get; set; }
+    public string? Major {get; set; }
     
-    public string DepartmentName   { get; set; }
-    public string SupervisorFullName { get; set; }
+    public string? DepartmentName   { get; set; }
+    public string? SupervisorFullName { get; set; }
 
     public int   SelectedDepartmentId  { get; set; }    
     public int   SelectedSupervisorId  { get; set; }    
@@ -25,5 +26,5 @@ public class TraineeViewModel
     public bool IsActive     { get; set; }
     public DateTime CreatedAt{ get; set; }
     
-    public SelectList Departments  { get; set; }
+    public SelectList? Departments  { get; set; }
 }

@@ -12,8 +12,8 @@ using UserManagement02.Data;
 namespace UserManagement02.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250721112946_FixSupervisorRelationship")]
-    partial class FixSupervisorRelationship
+    [Migration("20250724084444_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -207,10 +207,6 @@ namespace UserManagement02.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -221,19 +217,18 @@ namespace UserManagement02.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<string>("University")
+                    b.Property<string>("UniversityName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -332,7 +327,7 @@ namespace UserManagement02.Migrations
 
                     b.HasIndex("DepartmentId1");
 
-                    b.ToTable("Supervisor");
+                    b.ToTable("Supervisors");
                 });
 
             modelBuilder.Entity("UserManagement02.Models.Trainee", b =>
@@ -387,7 +382,7 @@ namespace UserManagement02.Migrations
 
                     b.HasIndex("SupervisorId");
 
-                    b.ToTable("Trainee");
+                    b.ToTable("Trainees");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -487,12 +482,12 @@ namespace UserManagement02.Migrations
             modelBuilder.Entity("UserManagement02.Models.Trainee", b =>
                 {
                     b.HasOne("UserManagement02.Models.Department", "Department")
-                        .WithMany("Trainees")
+                        .WithMany("Trainee")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("UserManagement02.Models.Supervisor", "Supervisor")
-                        .WithMany("Trainees")
+                        .WithMany("Trainee")
                         .HasForeignKey("SupervisorId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -505,12 +500,12 @@ namespace UserManagement02.Migrations
                 {
                     b.Navigation("SectionManager");
 
-                    b.Navigation("Trainees");
+                    b.Navigation("Trainee");
                 });
 
             modelBuilder.Entity("UserManagement02.Models.Supervisor", b =>
                 {
-                    b.Navigation("Trainees");
+                    b.Navigation("Trainee");
                 });
 #pragma warning restore 612, 618
         }

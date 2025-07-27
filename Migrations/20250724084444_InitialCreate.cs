@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UserManagement02.Migrations
 {
     /// <inheritdoc />
-    public partial class FinalFixedUserCascade : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,11 +30,10 @@ namespace UserManagement02.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserID = table.Column<int>(type: "int", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    University = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UniversityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -54,19 +53,6 @@ namespace UserManagement02.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Departments",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Departments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,6 +162,20 @@ namespace UserManagement02.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Departments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DepartmentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SupervisorId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Departments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SectionManager",
                 columns: table => new
                 {
@@ -202,36 +202,36 @@ namespace UserManagement02.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Supervisor",
+                name: "Supervisors",
                 columns: table => new
                 {
                     SupervisorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SupervisorFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartmentId = table.Column<int>(type: "int", nullable: true),
+                    DepartmentId1 = table.Column<int>(type: "int", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Supervisor", x => x.SupervisorId);
+                    table.PrimaryKey("PK_Supervisors", x => x.SupervisorId);
                     table.ForeignKey(
-                        name: "FK_Supervisor_AspNetUsers_AppUserId",
+                        name: "FK_Supervisors_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Supervisor_Departments_DepartmentId",
-                        column: x => x.DepartmentId,
+                        name: "FK_Supervisors_Departments_DepartmentId1",
+                        column: x => x.DepartmentId1,
                         principalTable: "Departments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trainee",
+                name: "Trainees",
                 columns: table => new
                 {
                     TraineeId = table.Column<int>(type: "int", nullable: false)
@@ -250,17 +250,17 @@ namespace UserManagement02.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trainee", x => x.TraineeId);
+                    table.PrimaryKey("PK_Trainees", x => x.TraineeId);
                     table.ForeignKey(
-                        name: "FK_Trainee_Departments_DepartmentId",
+                        name: "FK_Trainees_Departments_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Departments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Trainee_Supervisor_SupervisorId",
+                        name: "FK_Trainees_Supervisors_SupervisorId",
                         column: x => x.SupervisorId,
-                        principalTable: "Supervisor",
+                        principalTable: "Supervisors",
                         principalColumn: "SupervisorId",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -305,6 +305,13 @@ namespace UserManagement02.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Departments_SupervisorId",
+                table: "Departments",
+                column: "SupervisorId",
+                unique: true,
+                filter: "[SupervisorId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SectionManager_AppUserId",
                 table: "SectionManager",
                 column: "AppUserId");
@@ -315,29 +322,45 @@ namespace UserManagement02.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Supervisor_AppUserId",
-                table: "Supervisor",
+                name: "IX_Supervisors_AppUserId",
+                table: "Supervisors",
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Supervisor_DepartmentId",
-                table: "Supervisor",
+                name: "IX_Supervisors_DepartmentId1",
+                table: "Supervisors",
+                column: "DepartmentId1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trainees_DepartmentId",
+                table: "Trainees",
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Trainee_DepartmentId",
-                table: "Trainee",
-                column: "DepartmentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Trainee_SupervisorId",
-                table: "Trainee",
+                name: "IX_Trainees_SupervisorId",
+                table: "Trainees",
                 column: "SupervisorId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Departments_Supervisors_SupervisorId",
+                table: "Departments",
+                column: "SupervisorId",
+                principalTable: "Supervisors",
+                principalColumn: "SupervisorId",
+                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Supervisors_AspNetUsers_AppUserId",
+                table: "Supervisors");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Departments_Supervisors_SupervisorId",
+                table: "Departments");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -357,16 +380,16 @@ namespace UserManagement02.Migrations
                 name: "SectionManager");
 
             migrationBuilder.DropTable(
-                name: "Trainee");
+                name: "Trainees");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Supervisor");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Supervisors");
 
             migrationBuilder.DropTable(
                 name: "Departments");

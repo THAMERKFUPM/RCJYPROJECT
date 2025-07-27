@@ -38,6 +38,9 @@ namespace UserManagement02.Repositories
             {
                 _ctx.Trainees.Remove(t);
                 await _ctx.SaveChangesAsync();
+                Console.WriteLine("[DEBUG] SaveChangesAsync Executed");
+                
+
             }
         }
 
@@ -51,5 +54,6 @@ namespace UserManagement02.Repositories
             _ctx.Trainees.CountAsync(t => !t.IsActive);
        
     }
+    
     
 }

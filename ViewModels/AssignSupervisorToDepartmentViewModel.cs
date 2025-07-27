@@ -5,12 +5,20 @@ namespace UserManagement02.ViewModels;
 
 public class AssignSupervisorToDepartmentViewModel
 {
-    [Display(Name = "الإدارة")]
-    public int SelectedDepartmentId { get; set; }
+    public int TraineeId { get; set; }
+    public string FullName { get; set; }
 
-    [Display(Name = "المشرف")]
+    [Display(Name = "الإدارة")] 
+    public int SelectedDepartmentId { get; set; }
+    public int DepartmentId { get; set; }
+
+
+    [Display(Name = "المشرف")] [Required]
     public int SelectedSupervisorId { get; set; }
 
-    public SelectList Departments { get; set; }
-    public SelectList Supervisors { get; set; }
+    public IEnumerable<SelectListItem> Departments { get; set; } = new List<SelectListItem>();
+    public IEnumerable<SelectListItem> Supervisors { get; set; } = new List<SelectListItem>();
 }
+
+
+

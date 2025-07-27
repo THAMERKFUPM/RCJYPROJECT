@@ -108,6 +108,8 @@ namespace UserManagement02.Mapping
 
             CreateMap<Trainee, TraineeRowVM>()
                 .ForAllMembers(o => o.Ignore()); 
+            CreateMap<Supervisor, SupervisorViewModel>();
+            CreateMap<SupervisorViewModel, Supervisor>();
         }
     }
 }

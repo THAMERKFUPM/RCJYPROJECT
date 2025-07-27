@@ -18,8 +18,10 @@
     <dd class="col-sm-10">@Model.Email</dd>
 </dl>
 
-<form asp-action="Delete">
-    <input type="hidden" asp-for="TraineeId" />
-    <button type="submit" class="btn btn-danger">حذف</button>
-    <a asp-controller="HumanResources" asp-action="Dashboard" class="btn btn-secondary">إلغاء</a>
+<form asp-action="Delete"
+      asp-route-id="@Model.TraineeId"
+      method="post"
+      style="display:inline"
+      onsubmit="return confirm('هل أنت متأكد من الحذف؟');">
+    <button type="submit" class="btn btn-sm btn-danger">حذف</button>
 </form>
