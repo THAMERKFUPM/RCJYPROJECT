@@ -1,1 +1,13 @@
 .vs/
+<<<<<<< HEAD
+=======
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.pdb
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587

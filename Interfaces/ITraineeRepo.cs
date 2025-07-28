@@ -14,5 +14,10 @@ namespace UserManagement02.Interfaces;
         Task<int> GetTotalTraineesAsync();
         Task<int> GetActiveTraineesAsync();
         Task<int> GetInactiveTraineesAsync();
+<<<<<<< HEAD
+=======
+       
+       
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
     }
 

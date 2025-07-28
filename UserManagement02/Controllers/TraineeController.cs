@@ -1,9 +1,10 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using UserManagement02.Interfaces;
 using UserManagement02.Models;
 using UserManagement02.ViewModels;
@@ -16,17 +17,109 @@ namespace UserManagement02.Controllers
         private readonly ISupervisorRepo _srepo;
         private readonly IDepartmentRepo _drepo;
         private readonly IMapper _mapper;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+
+
 
         public TraineeController(
             ITraineeRepo repo,
             ISupervisorRepo srepo,
             IDepartmentRepo drepo,
-            IMapper mapper)
+            IMapper mapper,
+            SignInManager<AppUser> signInManager,
+            UserManager<AppUser> userManager)
+
+
         {
             _repo = repo;
             _srepo = srepo;
             _drepo = drepo;
             _mapper = mapper;
+            _signInManager = signInManager;
+            _userManager = userManager;
+
+
+        }
+        // GET: /Trainee/ChangePassword
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View(new TraineeChangePasswordViewModel());
+        }
+
+        // POST: /Trainee/ChangePassword
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(TraineeChangePasswordViewModel vm)
+        {
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            // find the user by email
+            var user = await _userManager.FindByEmailAsync(vm.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "«·»—Ìœ €Ì— „”Ã·.");
+                return View(vm);
+            }
+
+            // generate a reset token and apply the new password
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, vm.NewPassword);
+            if (!result.Succeeded)
+            {
+                foreach (var e in result.Errors)
+                    ModelState.AddModelError("", e.Description);
+                return View(vm);
+            }
+
+            TempData["Success"] = " „  €ÌÌ— ﬂ·„… «·„—Ê— »‰Ã«Õ.";
+            return RedirectToAction("Login", "Trainee");
+        }
+
+
+        // GET: /Trainee/ChangePasswordConfirmation
+        [HttpGet]
+        public IActionResult ChangePasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Login(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View(new TraineeLoginViewModel());
+        }
+
+        // POST: /Trainee/Login
+        [HttpPost]
+        public async Task<IActionResult> Login(TraineeLoginViewModel vm, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            var result = await _signInManager.PasswordSignInAsync(
+                vm.Email, vm.Password, vm.RememberMe, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    return Redirect(returnUrl);
+                return RedirectToAction("Dashboard", "HumanResources");
+            }
+
+            ModelState.AddModelError(string.Empty, "»Ì«‰«  «·œŒÊ· €Ì— ’ÕÌÕ…");
+            return View(vm);
+        }
+
+        // POST: /Trainee/Logout
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(Login));
         }
 
         [HttpGet]
@@ -35,7 +128,7 @@ namespace UserManagement02.Controllers
             return View(new CreateTraineeViewModel());
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Create(CreateTraineeViewModel vm)
         {
             if (!ModelState.IsValid)
@@ -74,7 +167,7 @@ namespace UserManagement02.Controllers
             return View(vm);
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost,]
         public async Task<IActionResult> Assign(TraineeAssignViewModel vm)
         {
             if (!ModelState.IsValid)

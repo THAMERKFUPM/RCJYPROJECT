@@ -13,9 +13,11 @@ public class UserRepo : IUserRepo
     }
 
 
+
     public async Task<List<AppUser>> GetAllUsers()
     {
         var list = await _context.AppUsers.ToListAsync();
+
         return list;
     }
 }

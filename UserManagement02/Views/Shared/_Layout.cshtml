@@ -26,6 +26,19 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Trainee" asp-action="Login">تسجيل دخول متدرب</a>
+                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            
+                            <li class="nav-item">
+                                <form asp-controller="Trainee" asp-action="Logout" method="post" class="d-inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="nav-link btn btn-link">خروج</button>
+                                </form>
+                            </li>
+                        }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
                            href="#"

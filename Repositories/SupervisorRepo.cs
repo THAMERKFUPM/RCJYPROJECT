@@ -14,7 +14,11 @@ namespace UserManagement02.Repositories
             _context = context;
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<Supervisor>> GetAllSupervisors() =>
+=======
+        public async Task<IEnumerable<Supervisor>> GetAllSupervisor() =>
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
             await _context.Supervisors.ToListAsync();
 
         public async Task<Supervisor?> GetSupervisor(int id) =>
@@ -34,10 +38,17 @@ namespace UserManagement02.Repositories
 
         public async Task DeleteAsync(int id)
         {
+<<<<<<< HEAD
             var sup = await _context.Supervisors.FindAsync(id);
             if (sup != null)
             {
                 _context.Supervisors.Remove(sup);
+=======
+            var supervisor = await _context.Supervisors.FindAsync(id);
+            if (supervisor != null)
+            {
+                _context.Supervisors.Remove(supervisor);
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
                 await _context.SaveChangesAsync();
             }
         }

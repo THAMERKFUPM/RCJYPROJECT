@@ -7,9 +7,15 @@
 <h1>@ViewData["Title"]</h1>
 
 <form asp-action="Create" method="post">
+<<<<<<< HEAD
     @Html.AntiForgeryToken()        
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+=======
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
 
     <div class="mb-3">
         <label asp-for="FullName" class="form-label"></label>
@@ -30,6 +36,7 @@
     </div>
 
 
+<<<<<<< HEAD
     <div class="mb-3">
         <label asp-for="Role" class="form-label"></label>
         <select asp-for="Role" class="form-control">
@@ -42,6 +49,23 @@
         </select>
         <span asp-validation-for="Role" class="text-danger"></span>
     </div>
+=======
+    @using Microsoft.AspNetCore.Mvc.Rendering
+
+    <div class="mb-3">
+        <label asp-for="Role" class="form-label"></label>
+        
+
+        <select asp-for="Role"
+                asp-items="@(ViewData["Roles"] as IEnumerable<SelectListItem>)"
+                class="form-control">
+            <option value="">-- اختر دور --</option>
+        </select>
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
     <div class="mb-3">
         <label asp-for="University" class="form-label"></label>
         <input asp-for="University" class="form-control" />

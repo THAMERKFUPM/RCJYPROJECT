@@ -1,0 +1,18 @@
+@model UserManagement02.ViewModels.AssignSupervisorToDepartmentViewModel
+
+<h2 class="mb-4">تعيين مشرف لإدارة</h2>
+
+<form asp-action="AssignSupervisorToDepartment" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="SelectedDepartmentId">الإدارة</label>
+        <select asp-for="SelectedDepartmentId" asp-items="Model.Departments" class="form-control"></select>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="SelectedSupervisorId">المشرف</label>
+        <select asp-for="SelectedSupervisorId" asp-items="Model.Supervisors" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="btn btn-success">تعيين</button>
+    <a asp-action="Dashboard" class="btn btn-secondary">رجوع</a>
+</form>

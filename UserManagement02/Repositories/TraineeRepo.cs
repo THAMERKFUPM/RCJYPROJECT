@@ -19,6 +19,7 @@ namespace UserManagement02.Repositories
         public async Task<Trainee> GetByIdAsync(int id) =>
             await _ctx.Trainees.FindAsync(id);
 
+
         public async Task CreateAsync(Trainee t)
         {
             _ctx.Trainees.Add(t);
