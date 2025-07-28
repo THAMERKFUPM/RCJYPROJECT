@@ -1092,8 +1092,8 @@ C:/Users/osama/Downloads/Copy4PM/Trainee-systemB/UserManagement02/obj/Debug/net8
 C:/Users/osama/Downloads/Copy4PM/Trainee-systemB/UserManagement02/obj/Debug/net8.0/ref/UserManagement02.dll
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/appsettings.Development.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/appsettings.json
-/Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/app.db
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/UserManagement02.staticwebassets.runtime.json
+/Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/app.db
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/UserManagement02
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/UserManagement02.deps.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/bin/Debug/net8.0/UserManagement02.runtimeconfig.json
@@ -1254,6 +1254,7 @@ C:/Users/osama/Downloads/Copy4PM/Trainee-systemB/UserManagement02/obj/Debug/net8
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.MvcApplicationPartsAssemblyInfo.cache
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.RazorAssemblyInfo.cache
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.RazorAssemblyInfo.cs
+/Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/UserManagement02.sourcelink.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets.build.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets.development.json
 /Users/alialomary/RiderProjects/RCJY/UserManagement02/obj/Debug/net8.0/staticwebassets/msbuild.UserManagement02.Microsoft.AspNetCore.StaticWebAssets.props
