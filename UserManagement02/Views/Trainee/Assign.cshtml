@@ -1,4 +1,4 @@
-@model UserManagement02.ViewModels.TraineeAssignViewModel
+@model UserManagement02.ViewModels.AssignSupervisorToDepartmentViewModel
 
 @{
     ViewData["Title"] = "Assign Supervisor and Department";
@@ -19,7 +19,7 @@
 
     <div class="form-group">
         <label asp-for="SelectedSupervisorId" class="control-label"></label>
-        <select asp-for="SelectedSupervisorId" asp-items="Model.Supervisor" class="form-control">
+        <select asp-for="SelectedSupervisorId" asp-items="Model.Supervisors" class="form-control">
             <option value="">-- Select Supervisor --</option>
         </select>
         <span asp-validation-for="SelectedSupervisorId" class="text-danger"></span>
@@ -30,5 +30,7 @@
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

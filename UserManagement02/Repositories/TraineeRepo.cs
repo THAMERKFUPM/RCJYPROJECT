@@ -18,7 +18,11 @@ namespace UserManagement02.Repositories
 
         public async Task<Trainee> GetByIdAsync(int id) =>
             await _ctx.Trainees.FindAsync(id);
-
+        public async Task<Trainee?> GetByEmailAsync(string email)
+        => await _ctx.Trainees
+                     .Include(t => t.Department)
+                     .Include(t => t.Supervisor)
+                     .FirstOrDefaultAsync(t => t.Email == email);
 
         public async Task CreateAsync(Trainee t)
         {
@@ -39,6 +43,9 @@ namespace UserManagement02.Repositories
             {
                 _ctx.Trainees.Remove(t);
                 await _ctx.SaveChangesAsync();
+                Console.WriteLine("[DEBUG] SaveChangesAsync Executed");
+
+
             }
         }
 
@@ -50,7 +57,8 @@ namespace UserManagement02.Repositories
 
         public Task<int> GetInactiveTraineesAsync() =>
             _ctx.Trainees.CountAsync(t => !t.IsActive);
-       
+
     }
-    
+
+
 }

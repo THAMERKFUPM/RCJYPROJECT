@@ -9,133 +9,137 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UserManagement02
 build_property.RootNamespace = UserManagement02
-build_property.ProjectDir = C:\Users\osama\Downloads\Copy4PM\Trainee-systemC\UserManagement02\
+build_property.ProjectDir = C:\Users\osama\Downloads\Copy4PM\Trainee-systemD\Trainee-systemD\UserManagement02\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\osama\Downloads\Copy4PM\Trainee-systemC\UserManagement02
+build_property.MSBuildProjectDirectory = C:\Users\osama\Downloads\Copy4PM\Trainee-systemD\Trainee-systemD\UserManagement02
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Home/Index.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Home/Privacy.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/HumanResources/AssignSupervisorToDepartment.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/HumanResources/AssignSupervisorToDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVtYW5SZXNvdXJjZXNcQXNzaWduU3VwZXJ2aXNvclRvRGVwYXJ0bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/HumanResources/Dashboard.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/HumanResources/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVtYW5SZXNvdXJjZXNcRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/HumanResources/Transfer.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/HumanResources/Transfer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSHVtYW5SZXNvdXJjZXNcVHJhbnNmZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/SectionManager/SectionManagerAssignment.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/SectionManager/SectionManagerAssignment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdGlvbk1hbmFnZXJcU2VjdGlvbk1hbmFnZXJBc3NpZ25tZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Shared/Error.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Shared/Components/ServicesDashboard/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2VydmljZXNEYXNoYm9hcmRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Supervisor/Create.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Supervisor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJ2aXNvclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Supervisor/Delete.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Supervisor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJ2aXNvclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Supervisor/Edit.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Supervisor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJ2aXNvclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Supervisor/Index.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Supervisor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwZXJ2aXNvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/TraineeDirectory/Index.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/TraineeDirectory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZURpcmVjdG9yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Assign.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxBc3NpZ24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/ChangePassword.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/ChangePasswordConfirmation.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/ChangePasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxDaGFuZ2VQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Create.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Delete.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Edit.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Index.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Trainee/Login.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Trainee/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5lZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Users/Create.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Users/Delete.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Users/Edit.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Users/index.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Users/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/_ViewImports.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/_ViewStart.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/osama/Downloads/Copy4PM/Trainee-systemC/UserManagement02/Views/Shared/_Layout.cshtml]
+[C:/Users/osama/Downloads/Copy4PM/Trainee-systemD/Trainee-systemD/UserManagement02/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-u8obngn996

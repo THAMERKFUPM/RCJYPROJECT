@@ -4836,11 +4836,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemC\\UserManagement02\\UserManagement02.csproj",
+      "projectUniqueName": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemD\\Trainee-systemD\\UserManagement02\\UserManagement02.csproj",
       "projectName": "UserManagement02",
-      "projectPath": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemC\\UserManagement02\\UserManagement02.csproj",
+      "projectPath": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemD\\Trainee-systemD\\UserManagement02\\UserManagement02.csproj",
       "packagesPath": "C:\\Users\\osama\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemC\\UserManagement02\\obj\\",
+      "outputPath": "C:\\Users\\osama\\Downloads\\Copy4PM\\Trainee-systemD\\Trainee-systemD\\UserManagement02\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,14 +1,15 @@
+using System.ComponentModel.DataAnnotations.Schema;
 namespace UserManagement02.Models
 {
     public class Trainee
     {
         public int TraineeId { get; set; }
 
-        public string FullName { get; set; } = null!;
-        public string Email { get; set; } = null!;
-        public string UniversityName { get; set; } = null!;
-        public string Major { get; set; } = null!;
-        public string PhoneNumber { get; set; } = null!;
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string? UniversityName { get; set; }
+        public string? Major { get; set; }
+        public string PhoneNumber { get; set; }
 
         public int? DepartmentId { get; set; }
         public Department? Department { get; set; }

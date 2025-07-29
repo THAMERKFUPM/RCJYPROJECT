@@ -25,7 +25,7 @@ namespace UserManagement02.Mapping
                            opt => opt.MapFrom(src => src.Department != null
                                                         ? src.Department.DepartmentName
                                                         : string.Empty));
-        
+
 
             CreateMap<SupervisorViewModel, Supervisor>()
                 .ForMember(dest => dest.SupervisorId,
@@ -38,7 +38,7 @@ namespace UserManagement02.Mapping
                            opt => opt.MapFrom(src => src.PhoneNumber))
                 .ForMember(dest => dest.DepartmentId,
                            opt => opt.MapFrom(src => src.SelectedDepartmentId));
- 
+
 
             CreateMap<AppUser, UserViewModel>()
             .ForMember(dst => dst.UserID,
@@ -107,9 +107,10 @@ namespace UserManagement02.Mapping
                        opt => opt.MapFrom(src => src.CreatedAt));
 
             CreateMap<Trainee, TraineeRowVM>()
-                .ForAllMembers(o => o.Ignore()); 
+                .ForAllMembers(o => o.Ignore());
+            CreateMap<Supervisor, SupervisorViewModel>();
+            CreateMap<SupervisorViewModel, Supervisor>();
         }
     }
 }
-
 

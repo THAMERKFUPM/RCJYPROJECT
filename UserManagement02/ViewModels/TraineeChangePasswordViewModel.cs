@@ -11,7 +11,7 @@ namespace UserManagement02.ViewModels
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "كلمة المرور الحالية")]
-        public string CurrentPassword { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
 
         [Required]
         [DataType(DataType.Password)]

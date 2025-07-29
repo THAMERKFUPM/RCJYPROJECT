@@ -34,10 +34,10 @@ namespace UserManagement02.Repositories
 
         public async Task DeleteAsync(int id)
         {
-            var sup = await _context.Supervisors.FindAsync(id);
-            if (sup != null)
+            var supervisor = await _context.Supervisors.FindAsync(id);
+            if (supervisor != null)
             {
-                _context.Supervisors.Remove(sup);
+                _context.Supervisors.Remove(supervisor);
                 await _context.SaveChangesAsync();
             }
         }

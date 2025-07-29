@@ -1,71 +1,9 @@
 @model UserManagement02.ViewModels.HumanResourceIndexViewModel
 
 @{
-    ViewData["Title"] = "لوحة تحكم الموارد البشرية";
+    ViewData["Title"] = "لوحة التحكم";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
 
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card text-white bg-primary mb-3 p-3">
-            <h5 class="card-title">المجموع</h5>
-            <p class="card-text fs-2">@Model.TotalEmployees</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-success mb-3 p-3">
-            <h5 class="card-title">نشط</h5>
-            <p class="card-text fs-2">@Model.ActiveEmployees</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-danger mb-3 p-3">
-            <h5 class="card-title">غير نشط</h5>
-            <p class="card-text fs-2">@Model.InactiveEmployees</p>
-        </div>
-    </div>
-</div>
-
-<form method="get" class="mb-3">
-    <div class="input-group">
-        <input type="text"
-               name="searchTerm"
-               value="@Model.SearchTerm"
-               class="form-control"
-               placeholder="ابحث باسم أو بريد…" />
-        <button type="submit" class="btn btn-outline-secondary">🔍</button>
-    </div>
-</form>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>الاسم</th>
-            <th>البريد</th>
-            <th>الهاتف</th>
-            <th>الحالة</th>
-            <th>تاريخ الإنشاء</th>
-            <th>إجراءات</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var t in Model.Items)
-        {
-            <tr>
-                <td>@t.TraineeId</td>
-                <td>@t.FullName</td>
-                <td>@t.Email</td>
-                <td>@t.PhoneNumber</td>
-                <td>@(t.IsActive ? "نشط" : "غير نشط")</td>
-                <td>@t.CreatedAt.ToString("yyyy-MM-dd")</td>
-                <td>
-                    <a asp-controller="Trainee" asp-action="Edit" asp-route-id="@t.TraineeId">تعديل</a> |
-                    <a asp-controller="Trainee" asp-action="Delete" asp-route-id="@t.TraineeId">حذف</a> |
-                    <a asp-controller="Trainee" asp-action="Assign" asp-route-id="@t.TraineeId">تفويض</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@await Component.InvokeAsync("ServicesDashboard", new { role = "HR" })

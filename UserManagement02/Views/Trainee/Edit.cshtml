@@ -9,7 +9,7 @@
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="TraineeId" />
 
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
     <div class="mb-3">
         <label asp-for="FullName" class="form-label"></label>
@@ -29,6 +29,20 @@
         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="UniversityName" class="form-label"></label>
+        <input asp-for="UniversityName" class="form-control" />
+        <span asp-validation-for="UniversityName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Major" class="form-label"></label>
+        <input asp-for="Major" class="form-control" />
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+
+
+
     <div class="form-check mb-3">
         <input asp-for="IsActive" class="form-check-input" />
         <label asp-for="IsActive" class="form-check-label"></label>
@@ -39,5 +53,7 @@
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
