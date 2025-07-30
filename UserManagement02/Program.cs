@@ -28,6 +28,8 @@ builder.Services.AddScoped<ISupervisorRepo,  SupervisorRepo>();
 builder.Services.AddScoped<IUserRepo,        UserRepo>();
 builder.Services.AddScoped<ITraineeRepo,     TraineeRepo>();
 builder.Services.AddScoped<IDepartmentRepo,  DepartmentRepo>();
+builder.Services.AddScoped<IEvaluationRepo, EvaluationRepo>();
+
 
 // Services
 builder.Services.AddScoped<ITraineeScopeService, TraineeScopeService>();

@@ -17,11 +17,13 @@ namespace UserManagement02.Controllers
         private readonly ISupervisorRepo _srepo;
         private readonly IDepartmentRepo _drepo;
         private readonly IMapper _mapper;
+        private readonly IEvaluationRepo _eRepo;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
 
         public TraineeController(
             ITraineeRepo repo,
+            IEvaluationRepo eRepo,
             ISupervisorRepo srepo,
             IDepartmentRepo drepo,
             IMapper mapper,
@@ -29,6 +31,7 @@ namespace UserManagement02.Controllers
             UserManager<AppUser> userManager)
         {
             _repo = repo;
+            _eRepo = eRepo;
             _srepo = srepo;
             _drepo = drepo;
             _mapper = mapper;
@@ -39,6 +42,60 @@ namespace UserManagement02.Controllers
         //
         // LOGIN / LOGOUT
         //
+        // Controllers/TraineeController.cs
+        [HttpGet]
+        public async Task<IActionResult> Evaluate(int? SelectedTraineeId)
+        {
+            var vm = new TraineeEvaluationViewModel();
+
+            var all = await _repo.GetAllAsync();
+            vm.Trainees = all
+              .Select(t => new SelectListItem(t.FullName, t.TraineeId.ToString(),
+                                              t.TraineeId == SelectedTraineeId))
+              .ToList();
+
+            if (SelectedTraineeId.HasValue)
+            {
+                var t = await _repo.GetByIdAsync(SelectedTraineeId.Value);
+                vm.SelectedTraineeId = t.TraineeId;
+                vm.FullName = t.FullName;
+                vm.Major = t.Major;
+                vm.UniversityName = t.UniversityName;
+                vm.TrainingEnd = t.CreatedAt; // or your actual start/end date
+
+                // Optionally pre-select defaults (or load saved eval)
+                vm.Enthusiasm = EvaluationLevel.„„ «“;
+                vm.Accuracy = EvaluationLevel.„„ «“;
+                vm.Quality = EvaluationLevel.„„ «“;
+                vm.Initiative = EvaluationLevel.„„ «“;
+                vm.Teamwork = EvaluationLevel.„„ «“;
+                vm.Dependability = EvaluationLevel.„„ «“;
+                vm.DecisionPower = EvaluationLevel.„„ «“;
+                vm.LearningAbility = EvaluationLevel.„„ «“;
+            }
+
+            return View(vm);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Evaluate(TraineeEvaluationViewModel vm)
+        {
+            // repopulate dropdown
+            var all = await _repo.GetAllAsync();
+            vm.Trainees = all
+              .Select(t => new SelectListItem(t.FullName, t.TraineeId.ToString(),
+                                              t.TraineeId == vm.SelectedTraineeId))
+              .ToList();
+
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            // at this point vm.OverallScore is already calculated
+            // you could save it if you have an evaluation table
+
+            return View(vm);
+        }
+
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
@@ -149,7 +206,8 @@ namespace UserManagement02.Controllers
                 TraineeId = ent.TraineeId,
                 FullName = ent.FullName,
                 SelectedDepartmentId = ent.DepartmentId.GetValueOrDefault(),
-                SelectedSupervisorId = ent.SupervisorId.GetValueOrDefault()
+                SelectedSupervisorId = ent.SupervisorId.GetValueOrDefault(),
+                StartDate = ent.StartDate
             };
             await PopulateLists(vm);
             return View(vm);
@@ -169,6 +227,7 @@ namespace UserManagement02.Controllers
 
             ent.DepartmentId = vm.SelectedDepartmentId;
             ent.SupervisorId = vm.SelectedSupervisorId;
+            ent.StartDate = vm.StartDate;
             await _repo.UpdateAsync(ent);
 
             return RedirectToAction("Dashboard", "HumanResources");
@@ -180,7 +239,7 @@ namespace UserManagement02.Controllers
             vm.Departments = new SelectList(depts, "Id", "DepartmentName", vm.SelectedDepartmentId);
 
             var sups = await _srepo.GetAllSupervisor();
-            vm.Supervisor = new SelectList(sups, "SupervisorId", "SupervisorFullName", vm.SelectedSupervisorId);
+            vm.Supervisors = new SelectList(sups, "SupervisorId", "SupervisorFullName", vm.SelectedSupervisorId);
         }
 
 

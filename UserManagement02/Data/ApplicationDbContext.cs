@@ -21,6 +21,8 @@ namespace UserManagement02.Data
         public DbSet<Trainee> Trainees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<SectionManager> SectionManager { get; set; }
+        public DbSet<Evaluation> Evaluations { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

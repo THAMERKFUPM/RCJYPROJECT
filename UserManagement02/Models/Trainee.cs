@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace UserManagement02.Models
 {
@@ -22,5 +23,7 @@ namespace UserManagement02.Models
 
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        [Display(Name = " «—ÌŒ «·„»«‘—…")]
+        public DateTime StartDate { get; set; } = DateTime.Today;
     }
 }
