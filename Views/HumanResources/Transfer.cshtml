@@ -1,0 +1,43 @@
+﻿@model UserManagement02.ViewModels.TransferTraineeViewModel
+@{
+    ViewData["Title"] = "تحويل الطالب إلى إدارة";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="HumanResources"
+      asp-action="Transfer"
+      method="post"
+      dir="rtl"
+      class="card p-4">
+
+    <div class="form-group mb-3">
+        <label asp-for="TraineeId"></label>
+        <select asp-for="TraineeId"
+                asp-items="Model.Trainee"
+                class="form-control">
+            <option value="">-- اختر اسم الطالب --</option>
+        </select>
+        <span asp-validation-for="TraineeId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label asp-for="DepartmentId"></label>
+        <select asp-for="DepartmentId"
+                asp-items="Model.Departments"
+                class="form-control">
+            <option value="">-- اختر الإدارة --</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">
+        إرسال المتدرب إلى مشرف التدريب
+    </button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

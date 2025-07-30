@@ -1,0 +1,27 @@
+@model UserManagement02.ViewModels.TraineeViewModel
+
+@{
+    ViewData["Title"] = "حذف متدرب";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h3>هل أنت متأكد من حذف المتدرب التالي؟</h3>
+
+<dl class="row">
+    <dt class="col-sm-2">#</dt>
+    <dd class="col-sm-10">@Model.TraineeId</dd>
+
+    <dt class="col-sm-2">الاسم</dt>
+    <dd class="col-sm-10">@Model.FullName</dd>
+
+    <dt class="col-sm-2">البريد</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+</dl>
+
+<form asp-action="Delete"
+      asp-route-id="@Model.TraineeId"
+      method="post"
+      style="display:inline"
+      onsubmit="return confirm('هل أنت متأكد من الحذف؟');">
+    <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+</form>

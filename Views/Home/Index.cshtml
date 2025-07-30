@@ -1,0 +1,23 @@
+﻿@model IEnumerable<UserManagement02.Models.AppUser>
+
+<h2>المستخدمون</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th><th>الاسم</th><th>البريد</th><th>الهاتف</th><th>الحالة</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var u in Model)
+    {
+        <tr>
+            <td>@u.Id</td>
+            <td>@u.FullName</td>
+            <td>@u.Email</td>
+            <td>@u.PhoneNumber</td>
+            <td>@(u.IsActive? "نشط":"غير نشط")</td>
+        </tr>
+    }
+    </tbody>
+</table>

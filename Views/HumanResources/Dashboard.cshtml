@@ -1,0 +1,9 @@
+@model UserManagement02.ViewModels.HumanResourceIndexViewModel
+
+@{
+    ViewData["Title"] = "لوحة التحكم";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@await Component.InvokeAsync("ServicesDashboard", new { role = "HR" })
