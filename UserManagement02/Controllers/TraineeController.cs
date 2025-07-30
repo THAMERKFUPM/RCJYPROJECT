@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -48,6 +48,7 @@ namespace UserManagement02.Controllers
         {
             var vm = new TraineeEvaluationViewModel();
 
+            // 1) dropdown
             var all = await _repo.GetAllAsync();
             vm.Trainees = all
               .Select(t => new SelectListItem(t.FullName, t.TraineeId.ToString(),
@@ -56,27 +57,24 @@ namespace UserManagement02.Controllers
 
             if (SelectedTraineeId.HasValue)
             {
+                // 2) load trainee info
                 var t = await _repo.GetByIdAsync(SelectedTraineeId.Value);
                 vm.SelectedTraineeId = t.TraineeId;
                 vm.FullName = t.FullName;
                 vm.Major = t.Major;
                 vm.UniversityName = t.UniversityName;
-                vm.TrainingEnd = t.CreatedAt; // or your actual start/end date
+                vm.StartDate = t.StartDate;
+                vm.EndDate = t.EndDate;
 
-                // Optionally pre-select defaults (or load saved eval)
-                vm.Enthusiasm = EvaluationLevel.„„ «“;
-                vm.Accuracy = EvaluationLevel.„„ «“;
-                vm.Quality = EvaluationLevel.„„ «“;
-                vm.Initiative = EvaluationLevel.„„ «“;
-                vm.Teamwork = EvaluationLevel.„„ «“;
-                vm.Dependability = EvaluationLevel.„„ «“;
-                vm.DecisionPower = EvaluationLevel.„„ «“;
-                vm.LearningAbility = EvaluationLevel.„„ «“;
+                // 3) load history
+                vm.History = (await _eRepo.GetByTraineeAsync(t.TraineeId))
+                                .ToList();
             }
 
             return View(vm);
         }
 
+        // POST: /Trainee/Evaluate
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Evaluate(TraineeEvaluationViewModel vm)
         {
@@ -88,13 +86,44 @@ namespace UserManagement02.Controllers
               .ToList();
 
             if (!ModelState.IsValid)
+            {
+                // reload history so table stays visible even on error
+                vm.History = (await _eRepo.GetByTraineeAsync(vm.SelectedTraineeId))
+                                .ToList();
                 return View(vm);
+            }
 
-            // at this point vm.OverallScore is already calculated
-            // you could save it if you have an evaluation table
+            // 1) persist new evaluation
+            var eval = new Evaluation
+            {
+                TraineeId = vm.SelectedTraineeId,
+                Enthusiasm = vm.Enthusiasm,
+                Accuracy = vm.Accuracy,
+                Quality = vm.Quality,
+                Initiative = vm.Initiative,
+                Teamwork = vm.Teamwork,
+                Dependability = vm.Dependability,
+                DecisionPower = vm.DecisionPower,
+                LearningAbility = vm.LearningAbility,
+                Score = vm.OverallScore
+            };
+            await _eRepo.CreateAsync(eval);
 
+            // 2) re‚Äêload trainee info & history
+            var t = await _repo.GetByIdAsync(vm.SelectedTraineeId);
+            vm.FullName = t.FullName;
+            vm.Major = t.Major;
+            vm.UniversityName = t.UniversityName;
+            vm.StartDate = t.StartDate;
+            vm.EndDate = t.EndDate;
+
+            vm.History = (await _eRepo.GetByTraineeAsync(vm.SelectedTraineeId))
+                            .ToList();
+
+            // 3) render the same view with the updated table
             return View(vm);
         }
+
 
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
@@ -121,7 +150,7 @@ namespace UserManagement02.Controllers
                 return RedirectToAction("Dashboard", "HumanResources");
             }
 
-            ModelState.AddModelError("", "»Ì«‰«  «·œŒÊ· €Ì— ’ÕÌÕ…");
+            ModelState.AddModelError("", "ÿ®ŸäÿßŸÜÿßÿ™ ÿßŸÑÿØÿÆŸàŸÑ ÿ∫Ÿäÿ± ÿµÿ≠Ÿäÿ≠ÿ©");
             return View(vm);
         }
 
@@ -161,7 +190,9 @@ namespace UserManagement02.Controllers
                 Major = vm.Major,
                 PhoneNumber = vm.PhoneNumber,
                 IsActive = vm.IsActive,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                StartDate = vm.StartDate,
+                EndDate = vm.EndDate
             };
             await _repo.CreateAsync(trainee);
 
@@ -175,6 +206,7 @@ namespace UserManagement02.Controllers
                 PhoneNumber = vm.PhoneNumber,
                 IsActive = vm.IsActive,
                 CreatedAt = DateTime.UtcNow
+
             };
             var createResult = await _userManager.CreateAsync(user, vm.Password);
             if (!createResult.Succeeded)
@@ -185,7 +217,7 @@ namespace UserManagement02.Controllers
                 return View(vm);
             }
 
-            // 3) Give them the ìInternî role
+            // 3) Give them the ‚ÄúIntern‚Äù role
             await _userManager.AddToRoleAsync(user, "Intern");
 
             return RedirectToAction("Dashboard", "HumanResources");
@@ -207,7 +239,8 @@ namespace UserManagement02.Controllers
                 FullName = ent.FullName,
                 SelectedDepartmentId = ent.DepartmentId.GetValueOrDefault(),
                 SelectedSupervisorId = ent.SupervisorId.GetValueOrDefault(),
-                StartDate = ent.StartDate
+                StartDate = ent.StartDate,
+                EndDate = ent.EndDate
             };
             await PopulateLists(vm);
             return View(vm);
@@ -228,6 +261,7 @@ namespace UserManagement02.Controllers
             ent.DepartmentId = vm.SelectedDepartmentId;
             ent.SupervisorId = vm.SelectedSupervisorId;
             ent.StartDate = vm.StartDate;
+            ent.EndDate = vm.EndDate;
             await _repo.UpdateAsync(ent);
 
             return RedirectToAction("Dashboard", "HumanResources");
@@ -300,7 +334,7 @@ namespace UserManagement02.Controllers
             var user = await _userManager.FindByEmailAsync(vm.Email);
             if (user == null)
             {
-                ModelState.AddModelError("", "«·»—Ìœ €Ì— „”Ã·.");
+                ModelState.AddModelError("", "ÿßŸÑÿ®ÿ±ŸäÿØ ÿ∫Ÿäÿ± ŸÖÿ≥ÿ¨ŸÑ.");
                 return View(vm);
             }
 
@@ -317,7 +351,7 @@ namespace UserManagement02.Controllers
                 return View(vm);
             }
 
-            TempData["Success"] = " „  €ÌÌ— ﬂ·„… «·„—Ê— »‰Ã«Õ.";
+            TempData["Success"] = "ÿ™ŸÖ ÿ™ÿ∫ŸäŸäÿ± ŸÉŸÑŸÖÿ© ÿßŸÑŸÖÿ±Ÿàÿ± ÿ®ŸÜÿ¨ÿßÿ≠.";
             return RedirectToAction(nameof(ChangePasswordConfirmation));
         }
 

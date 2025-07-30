@@ -18,7 +18,7 @@ using UserManagement02.Models;
         {
             var departments = await _context.Departments
                 .Include(d => d.Supervisor)
-                .Include(d => d.Trainee)
+                .Include(d => d.Trainees)
                 .ToListAsync();
 
             return View(departments);

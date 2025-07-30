@@ -19,6 +19,7 @@
         <th>الهاتف</th>
         <th>الإدارة</th>
         <th>إجراءات</th>
+        
     </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
             <td>@s.Email</td>
             <td>@s.PhoneNumber</td>
             <td>@s.Department</td>
+           
             <td>
                 <a asp-action="Edit" asp-route-id="@s.SupervisorId">تعديل</a> |
                 <a asp-action="Delete" asp-route-id="@s.SupervisorId">حذف</a>

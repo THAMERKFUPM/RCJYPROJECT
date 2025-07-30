@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UserManagement02.Data;
 
@@ -11,9 +12,11 @@ using UserManagement02.Data;
 namespace UserManagement02.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250730071028_AddStartAndEndDatesToTrainee")]
+    partial class AddStartAndEndDatesToTrainee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,9 +303,6 @@ namespace UserManagement02.Migrations
                     b.Property<int>("Quality")
                         .HasColumnType("int");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
                     b.Property<int>("Teamwork")
                         .HasColumnType("int");
 
@@ -542,7 +542,7 @@ namespace UserManagement02.Migrations
             modelBuilder.Entity("UserManagement02.Models.Trainee", b =>
                 {
                     b.HasOne("UserManagement02.Models.Department", "Department")
-                        .WithMany("Trainees")
+                        .WithMany("Trainee")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict);
 
@@ -560,7 +560,7 @@ namespace UserManagement02.Migrations
                 {
                     b.Navigation("SectionManager");
 
-                    b.Navigation("Trainees");
+                    b.Navigation("Trainee");
                 });
 
             modelBuilder.Entity("UserManagement02.Models.Supervisor", b =>

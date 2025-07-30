@@ -9,7 +9,7 @@ namespace UserManagement02.Models
         public int? SupervisorId { get; set; }
         public Supervisor? Supervisor { get; set; }
 
-        public ICollection<Trainee>? Trainee { get; set; } = new List<Trainee>();
+        public ICollection<Trainee>? Trainees { get; set; } = new List<Trainee>();
         public ICollection<SectionManager>? SectionManager { get; set; } = new List<SectionManager>();
     }
 }

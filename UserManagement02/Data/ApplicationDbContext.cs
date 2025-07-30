@@ -37,7 +37,7 @@ namespace UserManagement02.Data
 
             builder.Entity<Trainee>()
                 .HasOne(t => t.Department)
-                .WithMany(d => d.Trainee)
+                .WithMany(d => d.Trainees)
                 .HasForeignKey(t => t.DepartmentId)
                 .OnDelete(DeleteBehavior.Restrict);
 

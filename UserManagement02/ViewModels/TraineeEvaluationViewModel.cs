@@ -20,9 +20,15 @@ namespace UserManagement02.ViewModels
         public string? Major { get; set; }
         public string? UniversityName { get; set; }
         public DateTime? TrainingEnd { get; set; }
-
         [Display(Name = "تاريخ المباشرة")]
-        public DateTime StartDate { get; set; } = DateTime.Today;
+        public DateTime StartDate { get; set; }
+
+        [Display(Name = "تاريخ انتهاء التدريب")]
+        public DateTime EndDate { get; set; }
+
+        /// <summary> عدد الأيام المتبقية </summary>
+        public int DaysRemaining
+            => (EndDate.Date - DateTime.Today).Days;
 
         // the 8 criteria
         [Required, Display(Name = "الحماس للعمل والرغبة فيه")]
@@ -48,6 +54,9 @@ namespace UserManagement02.ViewModels
 
         [Required, Display(Name = "القدرة على التعلم والبحث عن المعلومات")]
         public EvaluationLevel LearningAbility { get; set; }
+       
+        public DateTime EvaluatedOn { get; set; } = DateTime.UtcNow;
+
 
         // --------------------------------------------------------------------
         // overall score = (sum of 8 values) / (max * 8) * 100, rounded
@@ -82,5 +91,8 @@ namespace UserManagement02.ViewModels
         /// e.g. "87%"
         /// </summary>
         public string OverallScoreDisplay => $"{OverallScore}%";
+        public List<Evaluation> History { get; set; }
+            = new List<Evaluation>();
     }
 }
+

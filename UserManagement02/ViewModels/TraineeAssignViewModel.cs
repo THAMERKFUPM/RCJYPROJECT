@@ -16,8 +16,11 @@ public class TraineeAssignViewModel
     [Required]
     public int SelectedSupervisorId { get; set; }
 
-    [Required, Display(Name = " «—ÌŒ «·„»«‘—…")]
+    [Display(Name = " «—ÌŒ «·„»«‘—…"), Required]
     public DateTime StartDate { get; set; }
+
+    [Display(Name = " «—ÌŒ «‰ Â«¡ «· œ—Ì»"), Required]
+    public DateTime EndDate { get; set; }
 
     public SelectList Departments { get; set; }
 

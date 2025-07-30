@@ -9,7 +9,6 @@ namespace UserManagement02.Models
         public int TraineeId { get; set; }
         public Trainee Trainee { get; set; } = null!;
 
-        // 0 = ضعيف, 1 = جيد, 2 = جيد جداً, 3 = ممتاز
         public EvaluationLevel Enthusiasm { get; set; }
         public EvaluationLevel Accuracy { get; set; }
         public EvaluationLevel Quality { get; set; }
@@ -19,15 +18,18 @@ namespace UserManagement02.Models
         public EvaluationLevel DecisionPower { get; set; }
         public EvaluationLevel LearningAbility { get; set; }
 
+        [Required]
+        public int Score { get; set; }
+
         public DateTime EvaluatedOn { get; set; } = DateTime.UtcNow;
     }
 
     public enum EvaluationLevel
     {
-        ضعيف = 0,
-        جيد = 1,
-        [Display(Name = "جيد جداً")]
-        جيد_جداً = 2,
-        ممتاز = 3
+        Poor = 25,
+        Good = 50,
+        [Display(Name = "Very Good")]
+        Very_Good = 75,
+        Excellent = 100
     }
 }

@@ -10,9 +10,8 @@
 <form asp-action="Evaluate" method="get" class="mb-4">
     <div class="row g-2 align-items-end">
         <div class="col-auto">
-            <label asp-for="SelectedTraineeId" class="form-label">اسم المتدرب</label>
-            <select asp-for="SelectedTraineeId" asp-items="Model.Trainees"
-                    class="form-select">
+            <label asp-for="SelectedTraineeId" class="form-label"></label>
+            <select asp-for="SelectedTraineeId" asp-items="Model.Trainees" class="form-select">
                 <option value="">-- اختر متدرب --</option>
             </select>
         </div>
@@ -36,19 +35,24 @@
                         <th>الجامعة</th>
                         <th>تاريخ المباشرة</th>
                         <th>تاريخ إنتهاء التدريب</th>
+                        <th>عدد الأيام المتبقية
+                        </th>
                         <th>التقييم العام</th>
+                        <th>تاريخ التقييم</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>@Model.SelectedTraineeId</td>
                         <td>@Model.FullName</td>
-                        <td>8 أسابيع</td>               @* or compute *@
+                        <td>8 أسابيع</td>
                         <td>@Model.Major</td>
                         <td>@Model.UniversityName</td>
-                        <td>@Model.StartDate</td>
-                        <td>@Model.TrainingEnd</td>
+                        <td>@Model.StartDate:</td>
+                        <td>@Model.EndDate:</td>
+                        <td>@Model.DaysRemaining من أيام</td>
                         <td>@Model.OverallScoreDisplay</td>
+                        <td>@Model.EvaluatedOn.ToLocalTime():</td>
                     </tr>
                 </tbody>
             </table>
@@ -62,23 +66,87 @@
         <div class="card shadow-sm mb-4 p-4">
             <h5 class="text-purple mb-3">قسم التطبيقات</h5>
             <div class="row g-3">
-                @foreach (var prop in new[]{
-                        nameof(Model.Enthusiasm), nameof(Model.Accuracy),
-                        nameof(Model.Quality), nameof(Model.Initiative),
-                        nameof(Model.Teamwork), nameof(Model.Dependability),
-                        nameof(Model.DecisionPower), nameof(Model.LearningAbility)
-                        })
-                {
-                    <div class="col-md-6">
-                        <label asp-for="@prop" class="form-label"></label>
-                        <select asp-for="@prop"
-                                asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
-                                class="form-select">
-                            <option value="">-- الرجاء التقييم --</option>
-                        </select>
-                        <span asp-validation-for="@prop" class="text-danger"></span>
-                    </div>
-                }
+
+                <div class="col-md-6">
+                    <label asp-for="Enthusiasm" class="form-label"></label>
+                    <select asp-for="Enthusiasm"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Enthusiasm" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Accuracy" class="form-label"></label>
+                    <select asp-for="Accuracy"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Accuracy" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Quality" class="form-label"></label>
+                    <select asp-for="Quality"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Quality" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Initiative" class="form-label"></label>
+                    <select asp-for="Initiative"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Initiative" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Teamwork" class="form-label"></label>
+                    <select asp-for="Teamwork"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Teamwork" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Dependability" class="form-label"></label>
+                    <select asp-for="Dependability"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="Dependability" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="DecisionPower" class="form-label"></label>
+                    <select asp-for="DecisionPower"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="DecisionPower" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="LearningAbility" class="form-label"></label>
+                    <select asp-for="LearningAbility"
+                            asp-items="Html.GetEnumSelectList<EvaluationLevel>()"
+                            class="form-select">
+                        <option value="">-- الرجاء التقييم --</option>
+                    </select>
+                    <span asp-validation-for="LearningAbility" class="text-danger"></span>
+                </div>
+
             </div>
 
             <div class="mt-4 text-end">
@@ -95,6 +163,12 @@
 }
 
 <style>
-    .text-purple { color:#2633ff; }
-    .bg-purple   { background:#2633ff; color:white; }
+    .text-purple {
+        color: #2633ff;
+    }
+
+    .bg-purple {
+        background: #2633ff;
+        color: white;
+    }
 </style>

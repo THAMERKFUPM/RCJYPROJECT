@@ -24,6 +24,9 @@ namespace UserManagement02.Models
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         [Display(Name = " «—ÌŒ «·„»«‘—…")]
-        public DateTime StartDate { get; set; } = DateTime.Today;
+        public DateTime StartDate { get; set; }
+
+        [Display(Name = " «—ÌŒ «‰ Â«¡ «· œ—Ì»")]
+        public DateTime EndDate { get; set; }
     }
 }
