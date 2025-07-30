@@ -8,6 +8,40 @@ namespace UserManagement02.Mapping
     {
         public MappingProfile()
         {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            // Supervisors ↔ SupervisorsViewModel
+            CreateMap<Supervisor, SupervisorsViewModel>()
+                // entity uses SupervisorID, VM uses Id
+                .ForMember(vm => vm.Id,
+                    opt => opt.MapFrom(src => src.SupervisorID))
+                .ReverseMap()
+                // and back again
+                .ForMember(src => src.Id,
+                    opt => opt.MapFrom(vm  => vm.SupervisorID));
+            
+            // AppUser ↔ UserViewModel
+            CreateMap<AppUser, UserViewModel>()
+                // everything else auto‐mapped because names match
+                // except we ignore the hashed Password coming from the store
+                .ForMember(vm => vm.Password,
+                    opt => opt.Ignore())
+                .ReverseMap()
+                // don't overwrite the DB‐generated UserID on insert
+                .ForMember(ent => ent.UserID,
+                    opt => opt.Ignore());
+            CreateMap<TraineeViewModel, Trainee>();
+            CreateMap<Trainee, TraineeViewModel>();
+
+            // You can also add others like:
+            CreateMap<SupervisorsViewModel, Supervisor>();
+            CreateMap<Supervisor, SupervisorsViewModel>();
+        }
+    }
+}
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 
 
             CreateMap<Supervisor, SupervisorViewModel>()
@@ -25,7 +59,11 @@ namespace UserManagement02.Mapping
                            opt => opt.MapFrom(src => src.Department != null
                                                         ? src.Department.DepartmentName
                                                         : string.Empty));
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 
             CreateMap<SupervisorViewModel, Supervisor>()
                 .ForMember(dest => dest.SupervisorId,
@@ -38,7 +76,11 @@ namespace UserManagement02.Mapping
                            opt => opt.MapFrom(src => src.PhoneNumber))
                 .ForMember(dest => dest.DepartmentId,
                            opt => opt.MapFrom(src => src.SelectedDepartmentId));
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 
             CreateMap<AppUser, UserViewModel>()
             .ForMember(dst => dst.UserID,
@@ -107,10 +149,19 @@ namespace UserManagement02.Mapping
                        opt => opt.MapFrom(src => src.CreatedAt));
 
             CreateMap<Trainee, TraineeRowVM>()
+<<<<<<< HEAD
                 .ForAllMembers(o => o.Ignore());
+=======
+                .ForAllMembers(o => o.Ignore()); 
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
             CreateMap<Supervisor, SupervisorViewModel>();
             CreateMap<SupervisorViewModel, Supervisor>();
         }
     }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8

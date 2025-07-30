@@ -10,12 +10,11 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-UserManagement02-faf813eb-a9d0-4c55-ba5b-4ef90039712a")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("UserManagement02")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f925949ee1841caeac344a502fd49c7aec11fbc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86bd4465cd916707b5022d9cde10ec472d2b4032")]
 [assembly: System.Reflection.AssemblyProductAttribute("UserManagement02")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UserManagement02")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

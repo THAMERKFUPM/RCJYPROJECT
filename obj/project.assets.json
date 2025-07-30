@@ -4835,11 +4835,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02.csproj",
       "projectName": "UserManagement02",
       "projectPath": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02.csproj",
       "packagesPath": "/Users/alialomary/.nuget/packages/",
       "outputPath": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/obj/",
+=======
+      "projectUniqueName": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02.csproj",
+      "projectName": "UserManagement02",
+      "projectPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02.csproj",
+      "packagesPath": "/Users/alialomary/.nuget/packages/",
+      "outputPath": "/Users/alialomary/RiderProjects/Trainee-system/obj/",
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/alialomary/.nuget/NuGet/NuGet.Config"

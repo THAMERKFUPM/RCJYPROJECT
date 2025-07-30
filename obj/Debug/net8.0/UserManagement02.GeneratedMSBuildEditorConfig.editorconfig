@@ -22,6 +22,130 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9BcmVhcy9JZGVudGl0eS9QYWdlcy9fVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Ib21lL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Ib21lL1ByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/HumanResources/AssignSupervisorToDepartment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9IdW1hblJlc291cmNlcy9Bc3NpZ25TdXBlcnZpc29yVG9EZXBhcnRtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/HumanResources/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9IdW1hblJlc291cmNlcy9EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/HumanResources/Transfer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9IdW1hblJlc291cmNlcy9UcmFuc2Zlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/SectionManager/SectionManagerAssignment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TZWN0aW9uTWFuYWdlci9TZWN0aW9uTWFuYWdlckFzc2lnbm1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Shared/Components/ServicesDashboard/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TaGFyZWQvQ29tcG9uZW50cy9TZXJ2aWNlc0Rhc2hib2FyZC9EZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TaGFyZWQvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TaGFyZWQvX0xvZ2luUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TaGFyZWQvX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Supervisor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TdXBlcnZpc29yL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Supervisor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TdXBlcnZpc29yL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Supervisor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TdXBlcnZpc29yL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Supervisor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TdXBlcnZpc29yL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0Fzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0NoYW5nZVBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/ChangePasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0NoYW5nZVBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Evaluate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0V2YWx1YXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Trainee/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlL0xvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/TraineeDirectory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9UcmFpbmVlRGlyZWN0b3J5L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Vc2Vycy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Vc2Vycy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Vc2Vycy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Users/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9Vc2Vycy9pbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9fVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9fVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +202,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwZXJ2aXNvci9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Supervisors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwZXJ2aXNvcnMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Supervisors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwZXJ2aXNvcnMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Supervisors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwZXJ2aXNvcnMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Supervisors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VwZXJ2aXNvcnMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Trainee/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZS9Bc3NpZ24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -118,6 +258,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZURpcmVjdG9yeS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Trainees/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZXMvQXNzaWduLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Trainees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Trainees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Trainees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhaW5lZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlcnMvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -141,6 +297,10 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VXNlck1hbmFnZW1lbnQwMi9WaWV3cy9TaGFyZWQvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0slew1c061
 
 [/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s

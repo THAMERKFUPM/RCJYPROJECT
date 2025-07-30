@@ -1,0 +1,26 @@
+@model UserManagement02.ViewModels.SupervisorViewModel
+
+@{
+    ViewData["Title"] = "حذف مشرف";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h3 class="text-danger">هل أنت متأكد من حذف هذا المشرف؟</h3>
+
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">#</dt>
+    <dd class="col-sm-10">@Model.SupervisorId</dd>
+
+    <dt class="col-sm-2">الاسم</dt>
+    <dd class="col-sm-10">@Model.SupervisorFullName</dd>
+
+    <dt class="col-sm-2">البريد</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="SupervisorId" />
+    <button type="submit" class="btn btn-danger">تأكيد الحذف</button>
+    <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+</form>

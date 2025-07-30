@@ -1,0 +1,30 @@
+@model IEnumerable<UserManagement02.ViewModels.TraineeViewModel>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>الاسم</th>
+        <th>الايميل</th>
+        <th>الاداره</th>
+        <th>مشرف التدريب</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var trainee in Model)
+    {
+        <tr>
+            <td>@trainee.FullName</td>
+            <td>@trainee.Email</td>
+            <td>@trainee.DepartmentName</td>
+            <td>@trainee.SupervisorFullName</td>
+            <td>
+                <a class="btn btn-sm btn-primary"
+                   asp-action="Assign"
+                   asp-route-id="@trainee.TraineeId">
+                    تعيين مشرف
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

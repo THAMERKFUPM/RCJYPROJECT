@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "p9wiNeRY6Qc=",
   "success": true,
   "projectFilePath": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02.csproj",
+=======
+  "dgSpecHash": "603FcLbgaH0=",
+  "success": true,
+  "projectFilePath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02.csproj",
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
   "expectedPackageFiles": [
     "/Users/alialomary/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/alialomary/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

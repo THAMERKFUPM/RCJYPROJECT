@@ -21,8 +21,11 @@ namespace UserManagement02.ViewModels
         [Required, RegularExpression(@"^\+?\d{8,15}$", ErrorMessage = "صيغة هاتف غير صحيحة")]
         public string PhoneNumber { get; set; } = string.Empty;
 
+<<<<<<< HEAD
         [Display(Name = "كلمة المرور")]
         public string Password { get; set; } = "";
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         public bool IsActive { get; set; } = true;
     }
 }

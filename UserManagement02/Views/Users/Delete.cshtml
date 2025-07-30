@@ -1,0 +1,19 @@
+@model UserManagement02.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "حذف مستخدم";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>هل تريد حقاً حذف هذا المستخدم؟</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">الاسم</dt>
+    <dd class="col-sm-10">@Model.FullName</dd>
+    
+</dl>
+
+<form asp-action="Delete" asp-route-id="@Model.UserID" method="post">
+    <button type="submit" class="btn btn-danger">نعم، احذف</button>
+    <a asp-action="Index" class="btn btn-secondary">إلغاء</a>
+</form>

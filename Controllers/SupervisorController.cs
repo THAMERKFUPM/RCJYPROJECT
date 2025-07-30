@@ -120,4 +120,8 @@ namespace UserManagement02.Controllers
             });
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8

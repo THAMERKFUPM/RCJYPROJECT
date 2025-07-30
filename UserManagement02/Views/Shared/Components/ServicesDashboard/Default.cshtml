@@ -1,0 +1,59 @@
+﻿@model UserManagement02.ViewModels.HumanResourceIndexViewModel
+
+<div class="row mb-4 text-white">
+    <div class="col-md-4">
+        <div class="card bg-primary">
+            <div class="card-body">
+                <h4 class="card-title">المجموع</h4>
+                <p class="card-text display-6">@Model.TotalEmployees</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-success">
+            <div class="card-body">
+                <h4 class="card-title">نشط</h4>
+                <p class="card-text display-6">@Model.ActiveEmployees</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-danger">
+            <div class="card-body">
+                <h4 class="card-title">غير نشط</h4>
+                <p class="card-text display-6">@Model.InactiveEmployees</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>#</th>
+            <th>الاسم</th>
+            <th>البريد</th>
+            <th>الهاتف</th>
+            <th>الحالة</th>
+            <th>تاريخ الإنشاء</th>
+            <th>إجراءات</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model.Items)
+        {
+            <tr>
+                <td>@t.TraineeId</td>
+                <td>@t.FullName</td>
+                <td>@t.Email</td>
+                <td>@t.PhoneNumber</td>
+                <td>@(t.IsActive ? "نشط" : "غير نشط")</td>
+                <td>@t.CreatedAt.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-controller="Trainee" asp-action="Edit" asp-route-id="@t.TraineeId">تعديل</a> |
+                    <a asp-controller="Trainee" asp-action="Delete" asp-route-id="@t.TraineeId">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

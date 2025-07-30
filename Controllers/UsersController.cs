@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+// Controllers/UsersController.cs
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UserManagement02.Data;
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -7,6 +20,10 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 using UserManagement02.Models;
 using UserManagement02.ViewModels;
 
@@ -14,6 +31,24 @@ namespace UserManagement02.Controllers
 {
     public class UsersController : Controller
     {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        private readonly ApplicationDbContext _ctx;
+        private readonly IMapper _mapper;
+
+        public UsersController(ApplicationDbContext ctx, IMapper mapper)
+        {
+            _ctx = ctx;
+            _mapper = mapper;
+        }
+
+        // GET: /Users
+        public async Task<IActionResult> Index()
+        {
+            var users = await _ctx.AppUsers.ToListAsync();
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IMapper _mapper;
@@ -31,10 +66,28 @@ namespace UserManagement02.Controllers
         public IActionResult Index()
         {
             var users = _userManager.Users.ToList();
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
             var vms = _mapper.Map<List<UserViewModel>>(users);
             return View(vms);
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        // GET: /Users/Create
+        public IActionResult Create()
+        {
+            var vm = new UserViewModel();
+            PopulateRoles();
+            return View(vm);
+        }
+
+        // POST: /Users/Create
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         public async Task<IActionResult> Create()
         {
             var vm = new UserViewModel();
@@ -42,11 +95,28 @@ namespace UserManagement02.Controllers
             return View(vm);
         }
 
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UserViewModel vm)
         {
             if (!ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                PopulateRoles();
+                return View(vm);
+            }
+
+            var entity = _mapper.Map<AppUser>(vm);
+            entity.CreatedAt = DateTime.UtcNow;
+            _ctx.AppUsers.Add(entity);
+            await _ctx.SaveChangesAsync();
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
                 await PopulateRoles();
                 return View(vm);
             }
@@ -88,10 +158,27 @@ namespace UserManagement02.Controllers
                 await PopulateRoles();
                 return View(vm);
             }
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
 
             return RedirectToAction(nameof(Index));
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        // GET: /Users/Edit/5
+        public async Task<IActionResult> Edit(int id)
+        {
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity == null) return NotFound();
+
+            var vm = _mapper.Map<UserViewModel>(entity);
+            PopulateRoles();
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         public async Task<IActionResult> Edit(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -103,6 +190,10 @@ namespace UserManagement02.Controllers
             vm.Role = userRoles.FirstOrDefault();
 
             await PopulateRoles();
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
             return View(vm);
         }
 
@@ -111,6 +202,58 @@ namespace UserManagement02.Controllers
         {
             if (!ModelState.IsValid)
             {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                PopulateRoles();
+                return View(vm);
+            }
+
+            var entity = await _ctx.AppUsers.FindAsync(vm.UserID);
+            if (entity == null) return NotFound();
+
+            _mapper.Map(vm, entity);
+            // if Password provided, hash manually or via UserManager (not shown here)
+            await _ctx.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: /Users/Delete/5
+        public async Task<IActionResult> Delete(int id)
+        {
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity == null) return NotFound();
+
+            var vm = _mapper.Map<UserViewModel>(entity);
+            return View(vm);
+        }
+
+        // POST: /Users/Delete/5
+        [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var entity = await _ctx.AppUsers.FindAsync(id);
+            if (entity != null)
+            {
+                _ctx.AppUsers.Remove(entity);
+                await _ctx.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // Helper to populate roles into ViewData
+        private void PopulateRoles()
+        {
+            ViewData["Roles"] = new List<SelectListItem>
+            {
+                new SelectListItem("HR","HR"),
+                new SelectListItem("Supervisor","Supervisor"),
+                new SelectListItem("SectionHead","SectionHead"),
+                new SelectListItem("Intern","Intern"),
+                new SelectListItem("Admin","Admin")
+            };
+=======
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
                 await PopulateRoles();
                 return View(vm);
             }
@@ -172,6 +315,10 @@ namespace UserManagement02.Controllers
                                           .ToListAsync();
 
             ViewData["Roles"] = roles;
+<<<<<<< HEAD
+=======
+>>>>>>> 1bfd4158136d1dfb77522d47ab4e5fe1576ea587
+>>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
         }
     }
 }
