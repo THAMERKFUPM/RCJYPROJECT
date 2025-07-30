@@ -1,8 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 using UserManagement02.Interfaces;
 using UserManagement02.ViewModels;
 
