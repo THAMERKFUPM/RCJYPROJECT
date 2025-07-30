@@ -4835,19 +4835,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02.csproj",
       "projectName": "UserManagement02",
       "projectPath": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/UserManagement02.csproj",
       "packagesPath": "/Users/alialomary/.nuget/packages/",
       "outputPath": "/Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/obj/",
-=======
-      "projectUniqueName": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02.csproj",
-      "projectName": "UserManagement02",
-      "projectPath": "/Users/alialomary/RiderProjects/Trainee-system/UserManagement02.csproj",
-      "packagesPath": "/Users/alialomary/.nuget/packages/",
-      "outputPath": "/Users/alialomary/RiderProjects/Trainee-system/obj/",
->>>>>>> f925949ee1841caeac344a502fd49c7aec11fbc8
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/alialomary/.nuget/NuGet/NuGet.Config"
@@ -4945,5 +4937,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/alialomary/RiderProjects/RCJYPROJECT/UserManagement02/obj/project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
+    }
+  ]
 }
